@@ -6,3 +6,30 @@
 //
 
 import Foundation
+
+struct Products: Codable {
+    let documents: [Store]?
+
+}
+struct Store: Codable {
+    let fields: ProductFilds?
+}
+struct ProductFilds: Codable {
+    let name: Name?
+    let price: Price?
+    let image: ImageUrl?
+    let id : IdString?
+}
+struct Name: Codable {
+    let stringValue: String?
+}
+struct Price: Codable {
+    let doubleValue: Double?
+}
+struct ImageUrl: Codable {
+    let stringValue: String?
+}
+struct IdString: Codable {
+    let stringValue: String?
+}
+
