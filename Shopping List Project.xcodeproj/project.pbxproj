@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,11 @@
 		FA0255A625F670AB00AC6671 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0255A525F670AB00AC6671 /* HomeViewModel.swift */; };
 		FA0255A925F670BF00AC6671 /* AddToCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0255A825F670BF00AC6671 /* AddToCardViewModel.swift */; };
 		FA0255AF25F6AB9900AC6671 /* Array+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0255AE25F6AB9700AC6671 /* Array+Extenstion.swift */; };
+		FA0255B625F6DAF800AC6671 /* JsonPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0255B525F6DAF700AC6671 /* JsonPost.swift */; };
+		FA0255B925F6F94600AC6671 /* JsonDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0255B825F6F94600AC6671 /* JsonDelete.swift */; };
+		FA0255BC25F6FF3C00AC6671 /* ModelPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0255BB25F6FF3C00AC6671 /* ModelPost.swift */; };
+		FA0255BF25F6FF4A00AC6671 /* ModelDelet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0255BE25F6FF4A00AC6671 /* ModelDelet.swift */; };
+		FA0255C225F7A99900AC6671 /* BuyItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0255C125F7A99700AC6671 /* BuyItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,11 @@
 		FA0255A525F670AB00AC6671 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FA0255A825F670BF00AC6671 /* AddToCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCardViewModel.swift; sourceTree = "<group>"; };
 		FA0255AE25F6AB9700AC6671 /* Array+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extenstion.swift"; sourceTree = "<group>"; };
+		FA0255B525F6DAF700AC6671 /* JsonPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonPost.swift; sourceTree = "<group>"; };
+		FA0255B825F6F94600AC6671 /* JsonDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDelete.swift; sourceTree = "<group>"; };
+		FA0255BB25F6FF3C00AC6671 /* ModelPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPost.swift; sourceTree = "<group>"; };
+		FA0255BE25F6FF4A00AC6671 /* ModelDelet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDelet.swift; sourceTree = "<group>"; };
+		FA0255C125F7A99700AC6671 /* BuyItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +88,6 @@
 				AFDE7496737BD94B40428B4F /* Pods-Shopping List Project.debug.xcconfig */,
 				3273322AA61E8485760DBB45 /* Pods-Shopping List Project.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -122,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				FA02558125F66CDC00AC6671 /* JsonParsing.swift */,
+				FA0255B525F6DAF700AC6671 /* JsonPost.swift */,
+				FA0255B825F6F94600AC6671 /* JsonDelete.swift */,
 			);
 			path = worker;
 			sourceTree = "<group>";
@@ -140,6 +151,7 @@
 			children = (
 				FA02558E25F66F1000AC6671 /* HomeViewController.swift */,
 				FA02559525F66F5500AC6671 /* AddToCardVC.swift */,
+				FA0255C125F7A99700AC6671 /* BuyItemViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -157,6 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				FA02558725F66D1A00AC6671 /* Model.swift */,
+				FA0255BB25F6FF3C00AC6671 /* ModelPost.swift */,
+				FA0255BE25F6FF4A00AC6671 /* ModelDelet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -301,14 +315,19 @@
 				FA02558B25F66D2E00AC6671 /* Supporter.swift in Sources */,
 				FA02556625F66B9F00AC6671 /* AppDelegate.swift in Sources */,
 				FA0255A625F670AB00AC6671 /* HomeViewModel.swift in Sources */,
+				FA0255B925F6F94600AC6671 /* JsonDelete.swift in Sources */,
+				FA0255C225F7A99900AC6671 /* BuyItemViewController.swift in Sources */,
 				FA02559625F66F5600AC6671 /* AddToCardVC.swift in Sources */,
 				FA02558825F66D1A00AC6671 /* Model.swift in Sources */,
 				FA02558225F66CDC00AC6671 /* JsonParsing.swift in Sources */,
 				FA0255A925F670BF00AC6671 /* AddToCardViewModel.swift in Sources */,
 				FA0255AF25F6AB9900AC6671 /* Array+Extenstion.swift in Sources */,
+				FA0255BF25F6FF4A00AC6671 /* ModelDelet.swift in Sources */,
+				FA0255B625F6DAF800AC6671 /* JsonPost.swift in Sources */,
 				FA02559B25F66FD000AC6671 /* HomeTableViewCell.swift in Sources */,
 				FA02558F25F66F1100AC6671 /* HomeViewController.swift in Sources */,
 				FA02556825F66B9F00AC6671 /* SceneDelegate.swift in Sources */,
+				FA0255BC25F6FF3C00AC6671 /* ModelPost.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +476,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2ASN24RYWR;
 				INFOPLIST_FILE = "Shopping List Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -476,6 +496,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2ASN24RYWR;
 				INFOPLIST_FILE = "Shopping List Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

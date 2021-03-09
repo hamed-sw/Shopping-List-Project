@@ -24,6 +24,7 @@ class HomeViewModel {
         }
     }
     
+
     
     //MARK: GET DATA
     
@@ -33,6 +34,11 @@ class HomeViewModel {
         let totalProduct = productData?.documents?.count
         return totalProduct ?? 0
     }
+    
+//    func getTotalNumberOf(at index:Int) -> Array<Any> {
+//       var total = productData?.documents
+//        return total ?? []
+//    }
     /// Function to retun  the name of Product
     /// - Parameter index: product name for each index
     /// - Returns: return only a product name as string, if does not exist then return the default as empty string.
@@ -60,6 +66,10 @@ class HomeViewModel {
     func getPrductPrice(at index: Int) -> Double? {
         let productPrice = productData?.documents?.object(at: index)?.fields?.price?.doubleValue
         return productPrice ?? 0.0
+    }
+    func getDeletId(at index: Int) -> String? {
+        let idForDelet = productData?.documents?.object(at: index)?.name
+        return idForDelet ?? ""
     }
     
 }

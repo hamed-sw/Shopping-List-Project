@@ -8,10 +8,11 @@
 import Foundation
 
 struct Products: Codable {
-    let documents: [Store]?
+    var documents: [Store]?
 
 }
 struct Store: Codable {
+    let name: String?
     let fields: ProductFilds?
 }
 struct ProductFilds: Codable {

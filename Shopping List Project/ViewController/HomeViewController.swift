@@ -22,6 +22,7 @@ class HomeViewController: UIViewController,HomeViewModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
    
+        tableView.reloadData()
         tableView.delegate = self
         tableView.dataSource = self
         self.viewModel.delegate = self
@@ -67,6 +68,17 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
             if let price = formatter.string(from: (viewModel.getPrductPrice(at: indexPath.row))! as NSNumber) {
                 cell.priceOfProductLabel.text = price
             }
+            cell.buttonPressed = {
+                var p = self.viewModel.getPrductPrice(at: indexPath.row)!
+                var pict = self.viewModel.getProductImage(at: indexPath.row)!
+                var numid = self.viewModel.getProuductid(at: indexPath.row)!
+                var nammm = self.viewModel.getProuductName(at: indexPath.row)!
+                JsonPost.addDataToCard(prices: p, pic: pict, nu: numid, names: nammm)
+                self.addItemToTheCard(addtoCard: "AddToCard", massege: "The Item is Sucessfuly add it in your list ")
+                
+
+                
+            }
             
             
             
@@ -75,7 +87,30 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
         }
         return newCell
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 123
+    }
     
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        var p = viewModel.getPrductPrice(at: indexPath.row)!
+//        var pict = viewModel.getProductImage(at: indexPath.row)!
+//        var numid = viewModel.getProuductid(at: indexPath.row)!
+//        var nammm = viewModel.getProuductName(at: indexPath.row)!
+//        JsonPost.addDataToCard(prices: p, pic: pict, nu: numid, names: nammm)
+//    }
+    func addItemToTheCard (addtoCard: String, massege: String) {
+        let alert = UIAlertController(title: addtoCard , message: massege, preferredStyle: UIAlertController.Style.alert)
+
+                // add an action (button)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+
+                // show the alert
+                self.present(alert, animated: true, completion: nil)
+        tableView.reloadData()
+        
+    }
+
     
     
 }
