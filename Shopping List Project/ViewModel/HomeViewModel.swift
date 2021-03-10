@@ -17,6 +17,7 @@ class HomeViewModel {
     
     var productData: Products?
     weak var delegate: HomeViewModelDelegate?
+    var arrayNameItem = [String]()
     
     
     func productSearch() {
@@ -80,4 +81,31 @@ class HomeViewModel {
         return idForDelet ?? ""
     }
     
+    
+    
+    
+    func addItemInArray(nameOfItem: String){
+        var addItemName = [String]()
+    /// user defaultls
+    /// user defaults are used for persistency for small chain of date which is not confidential
+        let defaults = UserDefaults.standard
+        if let addDefult = defaults.object(forKey: "addItem") {
+            addItemName = addDefult as? [String] ?? []
+        }
+        addItemName.append(nameOfItem)
+        defaults.set(addItemName, forKey: "addItem")
+        defaults.synchronize()
+    }
+    
+    func fetchNameOfItem(){
+        let defaults = UserDefaults.standard
+        if let nameitem = defaults.object(forKey: "addItem"){
+             arrayNameItem = nameitem as? [String] ?? []
+        }
+    }
+    
+    func refresh() {
+        fetchNameOfItem()
+        arrayNameItem = []
+    }
 }

@@ -45,7 +45,7 @@ class JsonPost {
     URLSession.shared.dataTask(with: urlRequst) { (data, resposns, error) in
         if (data != nil && data?.count != 0) {
             let response = String(data: data!, encoding: .utf8)
-            print(response)
+          //  print(response)
         }
     }.resume()
     

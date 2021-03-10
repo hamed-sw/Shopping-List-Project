@@ -103,7 +103,7 @@ extension AddToCardVC: UITableViewDelegate,UITableViewDataSource {
                     }
                     print("delete")
                 }
-            
+            //// because of index path dont crash in the delet time in cell
             self.addModelView.getTotalNumberOf(at: indexPath.row)
     
 

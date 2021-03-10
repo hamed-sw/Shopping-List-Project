@@ -55,22 +55,11 @@
                             <constraint firstAttribute="width" constant="145" id="hyu-Ei-Zhk"/>
                         </constraints>
                     </stackView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UOe-QY-J4g">
-                        <rect key="frame" x="275" y="51" width="27" height="22"/>
-                        <state key="normal" image="checkmark.circle.fill" catalog="system"/>
-                        <connections>
-                            <action selector="checkButtonTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="o17-oT-Nf9"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="UOe-QY-J4g" secondAttribute="trailing" constant="13" id="1GH-nl-V2X"/>
-                    <constraint firstItem="UOe-QY-J4g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="51" id="1e2-dj-rIq"/>
                     <constraint firstItem="ECO-fz-j3w" firstAttribute="leading" secondItem="KQA-qU-tfP" secondAttribute="trailing" constant="10" id="4XD-of-4Fr"/>
                     <constraint firstItem="KQA-qU-tfP" firstAttribute="leading" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="RhH-uY-Yxn"/>
                     <constraint firstItem="ECO-fz-j3w" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="TVP-nZ-LrG"/>
-                    <constraint firstItem="UOe-QY-J4g" firstAttribute="leading" secondItem="ECO-fz-j3w" secondAttribute="trailing" constant="10" id="c7u-iw-Fi0"/>
-                    <constraint firstAttribute="bottom" secondItem="UOe-QY-J4g" secondAttribute="bottom" constant="47" id="dhP-qa-z7U"/>
                     <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ECO-fz-j3w" secondAttribute="trailing" constant="50" id="rCY-uQ-5gU"/>
                     <constraint firstAttribute="bottom" secondItem="ECO-fz-j3w" secondAttribute="bottom" constant="10" id="rur-5r-4kl"/>
                     <constraint firstAttribute="bottom" secondItem="KQA-qU-tfP" secondAttribute="bottom" constant="10" id="tKN-FA-zWt"/>
@@ -81,7 +70,6 @@
             <connections>
                 <outlet property="addImage" destination="KQA-qU-tfP" id="dUc-RF-RS4"/>
                 <outlet property="buyButton" destination="bEV-bA-A4g" id="8lc-yL-CPj"/>
-                <outlet property="checkButton" destination="UOe-QY-J4g" id="LDU-mi-DMX"/>
                 <outlet property="nameLabel" destination="Jjd-zQ-NbS" id="ilq-or-5CR"/>
                 <outlet property="priceLabel" destination="9Cu-Ef-zLy" id="q0S-jb-BdS"/>
             </connections>
@@ -89,7 +77,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

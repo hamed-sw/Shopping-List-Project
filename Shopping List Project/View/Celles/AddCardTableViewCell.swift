@@ -15,12 +15,12 @@ class AddCardTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var buyButton: UIButton!
-    @IBOutlet weak var checkButton: UIButton! {
-        didSet {
-            checkButton.setTitle(ButtonImages.uncheckButton, for: .normal)
-
-        }
-    }
+//    @IBOutlet weak var checkButton: UIButton! {
+//        didSet {
+//            checkButton.setTitle(ButtonImages.uncheckButton, for: .normal)
+//
+//        }
+//    }
     
 
     var callBackOnButtonLogout: (()->())?
@@ -43,14 +43,14 @@ class AddCardTableViewCell: UITableViewCell {
         
         
     }
-    @IBAction func checkButtonTap(_ sender: Any) {
-        if checkButton.imageView?.image == UIImage(systemName: ButtonImages.uncheckButton){
-            checkButton.setImage(UIImage(systemName: ButtonImages.checkButton ), for: .normal)
-            
-        }else {
-            checkButton.setImage(UIImage(systemName: ButtonImages.uncheckButton), for: .normal)
-            
-        }
+//    @IBAction func checkButtonTap(_ sender: Any) {
+//        if checkButton.imageView?.image == UIImage(systemName: ButtonImages.uncheckButton){
+//            checkButton.setImage(UIImage(systemName: ButtonImages.checkButton ), for: .normal)
+//
+//        }else {
+//            checkButton.setImage(UIImage(systemName: ButtonImages.uncheckButton), for: .normal)
+//
+//        }
 //        func delet(name: String) {
 //            let str = name
 //            let size = str.reversed().firstIndex(of: "/") ?? str.count
@@ -70,6 +70,6 @@ class AddCardTableViewCell: UITableViewCell {
 //
 //
 //        }
-    }
+   // }
 
 }

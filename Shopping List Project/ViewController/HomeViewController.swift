@@ -18,19 +18,35 @@ class HomeViewController: UIViewController,HomeViewModelDelegate {
     
     //Variable
     lazy var viewModel = HomeViewModel()
-    let newItem = Item()
-    var arrayList = [Item]()
+   // var arrayList = [String]()
+   // var newItem = Item()
+    
+
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
    
+
+        deleteOldDataFromUserDefaults()
         tableView.reloadData()
         tableView.delegate = self
         tableView.dataSource = self
         self.viewModel.delegate = self
         connection()
         registerCell()
+        viewModel.fetchNameOfItem()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewModel.refresh()
+
+    }
+    func deleteOldDataFromUserDefaults() {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "addItem")
+        defaults.synchronize()
+        viewModel.arrayNameItem.removeAll()
     }
     private func registerCell() {
         tableView.register(UINib(nibName: CellIdentifire.homeTableViewCell , bundle: nil), forCellReuseIdentifier: CellIdentifire.homeTableViewCell)
@@ -57,11 +73,10 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifire.homeTableViewCell, for: indexPath) as? HomeTableViewCell {
              
             cell.nameOfProductLabel.text = viewModel.getProuductName(at: indexPath.row)
-            newItem.titel = viewModel.getProuductName(at: indexPath.row)!
-            arrayList.append(newItem)
-            
-
-            
+            //newItem = viewModel.getProuductName(at: indexPath.row)!
+          // var newElement = cell.nameOfProductLabel.text
+            //print(arrayList[indexPath.row])
+            //cell.nameOfProductLabel.text = arrayList[indexPath.row].titel
             if let urlString = viewModel.getProductImage(at: indexPath.row){
                 cell.productImage.kf.setImage(with: URL(string: urlString))
             }
@@ -72,10 +87,6 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
             if let price = formatter.string(from: (viewModel.getPrductPrice(at: indexPath.row))! as NSNumber) {
                 cell.priceOfProductLabel.text = price
             }
-            
-   
-            
-                
             cell.buttonPressed = {
                 let priceOfitme = self.viewModel.getPrductPrice(at: indexPath.row)!
                 let pictureOfItem = self.viewModel.getProductImage(at: indexPath.row)!
@@ -83,11 +94,83 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
                 let nameOfItem = self.viewModel.getProuductName(at: indexPath.row)!
                 JsonPost.addDataToCard(prices: priceOfitme, pic: pictureOfItem, nu: numid, names: nameOfItem)
                 self.addItemToTheCard(addtoCard: "AddToCard", massege: "The Item is Sucessfuly add it in your list ")
-                
             }
-        
             
             
+           // viewModel.addItemInArray(nameOfItem: newElement!)
+          // print( viewModel.arrayNameItem[0])
+//            if arrayList[0].done == true {
+//                cell.accessoryType = .checkmark
+//          } else {
+//               cell.accessoryType = .none
+//            print(arrayList[0])
+//
+//            }
+            //let dd = viewModel.arrayNameItem[indexPath]
+            //print(dd)
+            
+            
+            
+//            if indexPath.row == 0 {
+//              if arrayList[indexPath.row].done == true {
+//                    cell.accessoryType = .checkmark
+//              } else {
+//                   cell.accessoryType = .none
+//                }
+//            }else if indexPath.row == 1 {
+//                if arrayList[indexPath.row].done == true {
+//                      cell.accessoryType = .checkmark
+//                } else {
+//                     cell.accessoryType = .none
+//                  }
+//            }else if indexPath.row == 2 {
+//                if arrayList[indexPath.row].done == true {
+//                      cell.accessoryType = .checkmark
+//                } else {
+//                     cell.accessoryType = .none
+//                  }
+//            }else if indexPath.row == 3 {
+//                if arrayList[indexPath.row].done == true {
+//                      cell.accessoryType = .checkmark
+//                } else {
+//                     cell.accessoryType = .none
+//                  }
+//            }else if indexPath.row == 4 {
+//                if arrayList[indexPath.row].done == true {
+//                      cell.accessoryType = .checkmark
+//                } else {
+//                     cell.accessoryType = .none
+//                  }
+//            }else if indexPath.row == 5 {
+//                if arrayList[indexPath.row].done == true {
+//                      cell.accessoryType = .checkmark
+//                } else {
+//                     cell.accessoryType = .none
+//                  }
+//            }else if indexPath.row == 6 {
+//                if arrayList[indexPath.row].done == true {
+//                      cell.accessoryType = .checkmark
+//                } else {
+//                     cell.accessoryType = .none
+//                  }
+//            }else if indexPath.row == 7 {
+//                if arrayList[indexPath.row].done == true {
+//                      cell.accessoryType = .checkmark
+//                } else {
+//                     cell.accessoryType = .none
+//                  }
+//            }else if indexPath.row == 8 {
+//                if arrayList[indexPath.row].done == true {
+//                      cell.accessoryType = .checkmark
+//                } else {
+//                     cell.accessoryType = .none
+//                  }
+//            }
+//
+//
+//
+//
+//
             
             newCell = cell
         }
@@ -103,14 +186,21 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+//        if arrayList[indexPath.row].done == false {
+//
+//            arrayList[indexPath.row].done = true
+//
+//        }else {
+//            arrayList[indexPath.row].done = false
+//
+//        }
+        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
+            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+        }else {
+            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        }
         
-            if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-                tableView.cellForRow(at: indexPath)?.accessoryType = .none
-                
-            }else {
-                tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-            }
-            tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadData()
     
         
 
