@@ -15,11 +15,16 @@ class AddCardTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var buyButton: UIButton!
-    @IBOutlet weak var checkButton: UIButton!
+    @IBOutlet weak var checkButton: UIButton! {
+        didSet {
+            checkButton.setTitle(ButtonImages.uncheckButton, for: .normal)
+
+        }
+    }
     
 
-   // weak var delegate: dddddddddddelegate?
     var callBackOnButtonLogout: (()->())?
+
 
     
     override func awakeFromNib() {
@@ -33,51 +38,38 @@ class AddCardTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func buyButtonTap(_ sender: Any) {
-        //self.delegate?.addd()
         self.callBackOnButtonLogout?()
     
         
         
     }
     @IBAction func checkButtonTap(_ sender: Any) {
-        func delet(name: String) {
-            let str = name
-            let size = str.reversed().firstIndex(of: "/") ?? str.count
-                let startWord = str.index(str.endIndex, offsetBy: -size)
-                let last = str[startWord...]
-                let sss = String(last)
-                print (sss)
+        if checkButton.imageView?.image == UIImage(systemName: ButtonImages.uncheckButton){
+            checkButton.setImage(UIImage(systemName: ButtonImages.checkButton ), for: .normal)
             
-            
-            JsonDelete.del(id: sss) { (erro) in
-                    if let err = erro {
-                        print("errrrrr",err)
-                        return
-                    }
-                    print("delete")
-                }
-            
+        }else {
+            checkButton.setImage(UIImage(systemName: ButtonImages.uncheckButton), for: .normal)
             
         }
-    }
-    
-//    func delet(name: String) {
-//        let str = name
-//        let size = str.reversed().firstIndex(of: "/") ?? str.count
-//            let startWord = str.index(str.endIndex, offsetBy: -size)
-//            let last = str[startWord...]
-//            let sss = String(last)
-//            print (sss)
-//        
-//        
-//        JsonDelete.del(id: sss) { (erro) in
-//                if let err = erro {
-//                    print("errrrrr",err)
-//                    return
+//        func delet(name: String) {
+//            let str = name
+//            let size = str.reversed().firstIndex(of: "/") ?? str.count
+//                let startWord = str.index(str.endIndex, offsetBy: -size)
+//                let last = str[startWord...]
+//                let sss = String(last)
+//                print (sss)
+//
+//
+//            JsonDelete.del(id: sss) { (erro) in
+//                    if let err = erro {
+//                        print("errrrrr",err)
+//                        return
+//                    }
+//                    print("delete")
 //                }
-//                print("delete")
-//            }
-//        
-//        
-//    }
+//
+//
+//        }
+    }
+
 }

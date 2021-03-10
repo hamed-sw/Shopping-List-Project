@@ -18,7 +18,10 @@ class HomeViewController: UIViewController,HomeViewModelDelegate {
     
     //Variable
     lazy var viewModel = HomeViewModel()
+    let newItem = Item()
+    var arrayList = [Item]()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
    
@@ -44,6 +47,7 @@ class HomeViewController: UIViewController,HomeViewModelDelegate {
 }
 
 extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
+  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.getTotalNumberOfProducts() ?? 0
     }
@@ -51,11 +55,13 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var newCell = HomeTableViewCell()
         if let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifire.homeTableViewCell, for: indexPath) as? HomeTableViewCell {
-            
+             
             cell.nameOfProductLabel.text = viewModel.getProuductName(at: indexPath.row)
-//            if let price = viewModel.getPrductPrice(at: indexPath.row) {
-//               cell.priceOfProductLabel.text = String(price)
-//            }
+            newItem.titel = viewModel.getProuductName(at: indexPath.row)!
+            arrayList.append(newItem)
+            
+
+            
             if let urlString = viewModel.getProductImage(at: indexPath.row){
                 cell.productImage.kf.setImage(with: URL(string: urlString))
             }
@@ -63,23 +69,23 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
             let formatter = NumberFormatter()
             formatter.locale = Locale.current
             formatter.numberStyle = .currency
-           // let currencyDymbol = formatter.currencySymbol!
-            //let currencycode = formatter.currencyCode!
             if let price = formatter.string(from: (viewModel.getPrductPrice(at: indexPath.row))! as NSNumber) {
                 cell.priceOfProductLabel.text = price
             }
+            
+   
+            
+                
             cell.buttonPressed = {
-                var p = self.viewModel.getPrductPrice(at: indexPath.row)!
-                var pict = self.viewModel.getProductImage(at: indexPath.row)!
-                var numid = self.viewModel.getProuductid(at: indexPath.row)!
-                var nammm = self.viewModel.getProuductName(at: indexPath.row)!
-                JsonPost.addDataToCard(prices: p, pic: pict, nu: numid, names: nammm)
+                let priceOfitme = self.viewModel.getPrductPrice(at: indexPath.row)!
+                let pictureOfItem = self.viewModel.getProductImage(at: indexPath.row)!
+                let numid = self.viewModel.getProuductid(at: indexPath.row)!
+                let nameOfItem = self.viewModel.getProuductName(at: indexPath.row)!
+                JsonPost.addDataToCard(prices: priceOfitme, pic: pictureOfItem, nu: numid, names: nameOfItem)
                 self.addItemToTheCard(addtoCard: "AddToCard", massege: "The Item is Sucessfuly add it in your list ")
                 
-
-                
             }
-            
+        
             
             
             
@@ -91,14 +97,24 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
         return 123
     }
     
+
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        var p = viewModel.getPrductPrice(at: indexPath.row)!
-//        var pict = viewModel.getProductImage(at: indexPath.row)!
-//        var numid = viewModel.getProuductid(at: indexPath.row)!
-//        var nammm = viewModel.getProuductName(at: indexPath.row)!
-//        JsonPost.addDataToCard(prices: p, pic: pict, nu: numid, names: nammm)
-//    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+            if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
+                tableView.cellForRow(at: indexPath)?.accessoryType = .none
+                
+            }else {
+                tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+            }
+            tableView.deselectRow(at: indexPath, animated: true)
+    
+        
+
+    }
     func addItemToTheCard (addtoCard: String, massege: String) {
         let alert = UIAlertController(title: addtoCard , message: massege, preferredStyle: UIAlertController.Style.alert)
 
@@ -110,7 +126,6 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
         tableView.reloadData()
         
     }
+    
 
-    
-    
 }

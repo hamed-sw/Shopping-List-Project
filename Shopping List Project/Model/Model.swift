@@ -20,6 +20,7 @@ struct ProductFilds: Codable {
     let price: Price?
     let image: ImageUrl?
     let id : IdString?
+    
 }
 struct Name: Codable {
     let stringValue: String?

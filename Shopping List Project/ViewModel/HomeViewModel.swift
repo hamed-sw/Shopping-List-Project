@@ -12,6 +12,8 @@ protocol HomeViewModelDelegate: class {
 }
 
 class HomeViewModel {
+  //  var title: String = ""
+   // var done: Bool = false
     
     var productData: Products?
     weak var delegate: HomeViewModelDelegate?
@@ -35,9 +37,15 @@ class HomeViewModel {
         return totalProduct ?? 0
     }
     
-//    func getTotalNumberOf(at index:Int) -> Array<Any> {
-//       var total = productData?.documents
-//        return total ?? []
+//    func getTotalFalse(at index:Int) -> Bool? {
+//        var total = productData?.documents?.object(at: index)?.fields?.name?.done
+//         total = false
+//        return (total ?? false) as Bool
+//    }
+//    func getTotalTrue(at index:Int) -> Bool? {
+//        var total = productData?.documents?.object(at: index)?.fields?.name?.done
+//         total = true
+//        return (total ?? true) as Bool
 //    }
     /// Function to retun  the name of Product
     /// - Parameter index: product name for each index

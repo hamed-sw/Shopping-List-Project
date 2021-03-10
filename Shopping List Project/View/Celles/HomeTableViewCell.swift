@@ -27,6 +27,8 @@ class HomeTableViewCell: UITableViewCell {
     
     // Variable
     var buttonPressed : (() -> ()) = {}
+    var buttonLikeAndUnlike : (() -> ()) = {}
+
     let homeVC = HomeViewController()
     weak var delegate: TableCellDelegate?
 
@@ -34,6 +36,9 @@ class HomeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+//    override func prepareForReuse() {
+//        likeAndUnlikeButoon()
+//    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -44,19 +49,32 @@ class HomeTableViewCell: UITableViewCell {
          buttonPressed()
     }
     @IBAction func likeProductButtonTap(_ sender: Any) {
+        buttonLikeAndUnlike()
+    
         
         if likeProductButton.imageView?.image == UIImage(systemName: ButtonImages.unlikeButton){
             likeProductButton.setImage(UIImage(systemName: ButtonImages.likeButton ), for: .normal)
             numberOfLikeLabel.text = "1"
+
            // self.delegate?.checkAndUpdate(cell: self)
         }else {
             likeProductButton.setImage(UIImage(systemName: ButtonImages.unlikeButton), for: .normal)
             numberOfLikeLabel.text = "0"
-            
+
         }
     }
     
     func likeAndUnlikeButoon() {
+        
+        if likeProductButton.imageView?.image == UIImage(systemName: ButtonImages.unlikeButton){
+            likeProductButton.setImage(UIImage(systemName: ButtonImages.likeButton ), for: .normal)
+            numberOfLikeLabel.text = "1"
+
+        }else {
+            likeProductButton.setImage(UIImage(systemName: ButtonImages.unlikeButton), for: .normal)
+            numberOfLikeLabel.text = "0"
+
+        }
      
     }
     
