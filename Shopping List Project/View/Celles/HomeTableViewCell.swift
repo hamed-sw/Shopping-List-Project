@@ -17,17 +17,9 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var nameOfProductLabel: UILabel!
     @IBOutlet weak var priceOfProductLabel: UILabel!
-    @IBOutlet weak var addCardButton: UIButton!
-    @IBOutlet weak var likeProductButton: UIButton! {
-        didSet {
-            likeProductButton.setTitle(ButtonImages.unlikeButton, for: .normal)
-        }
-    }
-    @IBOutlet weak var numberOfLikeLabel: UILabel!
-    
+    @IBOutlet weak var addCardButton: UIButton!  
     // Variable
     var buttonPressed : (() -> ()) = {}
-    var buttonLikeAndUnlike : (() -> ()) = {}
     
     let homeVC = HomeViewController()
     weak var delegate: TableCellDelegate?
@@ -41,23 +33,5 @@ class HomeTableViewCell: UITableViewCell {
     @IBAction func addCardButtonTap(_ sender: Any) {
         buttonPressed()
     }
-    @IBAction func likeProductButtonTap(_ sender: Any) {
-        buttonLikeAndUnlike()
-        
-        
-        if likeProductButton.imageView?.image == UIImage(systemName: ButtonImages.unlikeButton){
-            likeProductButton.setImage(UIImage(systemName: ButtonImages.likeButton ), for: .normal)
-            numberOfLikeLabel.text = "1"
-            
-        }else {
-            likeProductButton.setImage(UIImage(systemName: ButtonImages.unlikeButton), for: .normal)
-            numberOfLikeLabel.text = "0"
-            
-        }
-    }
-    
-
-    
-    
-    
+ 
 }

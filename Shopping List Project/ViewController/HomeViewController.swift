@@ -30,6 +30,7 @@ class HomeViewController: UIViewController,HomeViewModelDelegate {
         self.viewModel.delegate = self
         connection()
         registerCell()
+        self.tableView.allowsMultipleSelection = true
     }
 
     private func registerCell() {
@@ -76,7 +77,7 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
                 JsonPost.addDataToCard(prices: priceOfitme, pic: pictureOfItem, nu: numid, names: nameOfItem)
                 self.addItemToTheCard(addtoCard: "AddToCard", massege: "The Item is Sucessfuly add it in your list ")
             }
-            
+            cell.accessoryType = cell.isSelected ? .checkmark : .none
             newCell = cell
         }
         return newCell
@@ -95,6 +96,16 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
         tableView.reloadData()
         
     }
+  
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.accessoryType = .none
+
+    }
+    
     
     
 }

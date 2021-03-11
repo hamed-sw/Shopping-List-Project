@@ -25,6 +25,7 @@ class AddToCardVC: UIViewController, AddViewModelDelegate{
         tableView.delegate = self
         tableView.dataSource = self
         registerCell()
+        self.tableView.allowsMultipleSelection = true
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -79,6 +80,8 @@ extension AddToCardVC: UITableViewDelegate,UITableViewDataSource {
                 vc.nameItem = "Add card For " + namOfItem!
                 self.navigationController?.pushViewController(vc, animated: true)
             }
+            cell.accessoryType = cell.isSelected ? .checkmark : .none
+
             newCell = cell
         }
         return newCell
@@ -108,18 +111,18 @@ extension AddToCardVC: UITableViewDelegate,UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-            
-        }else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 123
+    }
+
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.accessoryType = .none
+
     }
     
     
