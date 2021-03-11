@@ -28,56 +28,36 @@ class HomeTableViewCell: UITableViewCell {
     // Variable
     var buttonPressed : (() -> ()) = {}
     var buttonLikeAndUnlike : (() -> ()) = {}
-
+    
     let homeVC = HomeViewController()
     weak var delegate: TableCellDelegate?
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-//    override func prepareForReuse() {
-//        likeAndUnlikeButoon()
-//    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    
     @IBAction func addCardButtonTap(_ sender: Any) {
-         buttonPressed()
+        buttonPressed()
     }
     @IBAction func likeProductButtonTap(_ sender: Any) {
         buttonLikeAndUnlike()
-    
+        
         
         if likeProductButton.imageView?.image == UIImage(systemName: ButtonImages.unlikeButton){
             likeProductButton.setImage(UIImage(systemName: ButtonImages.likeButton ), for: .normal)
             numberOfLikeLabel.text = "1"
-
-           // self.delegate?.checkAndUpdate(cell: self)
+            
         }else {
             likeProductButton.setImage(UIImage(systemName: ButtonImages.unlikeButton), for: .normal)
             numberOfLikeLabel.text = "0"
-
+            
         }
     }
     
-    func likeAndUnlikeButoon() {
-        
-        if likeProductButton.imageView?.image == UIImage(systemName: ButtonImages.unlikeButton){
-            likeProductButton.setImage(UIImage(systemName: ButtonImages.likeButton ), for: .normal)
-            numberOfLikeLabel.text = "1"
 
-        }else {
-            likeProductButton.setImage(UIImage(systemName: ButtonImages.unlikeButton), for: .normal)
-            numberOfLikeLabel.text = "0"
-
-        }
-     
-    }
     
-   
+    
     
 }

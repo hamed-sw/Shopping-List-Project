@@ -12,12 +12,10 @@ protocol HomeViewModelDelegate: class {
 }
 
 class HomeViewModel {
-  //  var title: String = ""
-   // var done: Bool = false
+ 
     
     var productData: Products?
     weak var delegate: HomeViewModelDelegate?
-    var arrayNameItem = [String]()
     
     
     func productSearch() {
@@ -27,7 +25,7 @@ class HomeViewModel {
         }
     }
     
-
+    
     
     //MARK: GET DATA
     
@@ -38,16 +36,6 @@ class HomeViewModel {
         return totalProduct ?? 0
     }
     
-//    func getTotalFalse(at index:Int) -> Bool? {
-//        var total = productData?.documents?.object(at: index)?.fields?.name?.done
-//         total = false
-//        return (total ?? false) as Bool
-//    }
-//    func getTotalTrue(at index:Int) -> Bool? {
-//        var total = productData?.documents?.object(at: index)?.fields?.name?.done
-//         total = true
-//        return (total ?? true) as Bool
-//    }
     /// Function to retun  the name of Product
     /// - Parameter index: product name for each index
     /// - Returns: return only a product name as string, if does not exist then return the default as empty string.
@@ -82,30 +70,4 @@ class HomeViewModel {
     }
     
     
-    
-    
-    func addItemInArray(nameOfItem: String){
-        var addItemName = [String]()
-    /// user defaultls
-    /// user defaults are used for persistency for small chain of date which is not confidential
-        let defaults = UserDefaults.standard
-        if let addDefult = defaults.object(forKey: "addItem") {
-            addItemName = addDefult as? [String] ?? []
-        }
-        addItemName.append(nameOfItem)
-        defaults.set(addItemName, forKey: "addItem")
-        defaults.synchronize()
-    }
-    
-    func fetchNameOfItem(){
-        let defaults = UserDefaults.standard
-        if let nameitem = defaults.object(forKey: "addItem"){
-             arrayNameItem = nameitem as? [String] ?? []
-        }
-    }
-    
-    func refresh() {
-        fetchNameOfItem()
-        arrayNameItem = []
-    }
 }

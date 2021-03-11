@@ -9,9 +9,9 @@ import UIKit
 import Kingfisher
 
 class AddToCardVC: UIViewController, AddViewModelDelegate{
-  
     
-
+    
+    
     // Outlet
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,9 +25,7 @@ class AddToCardVC: UIViewController, AddViewModelDelegate{
         tableView.delegate = self
         tableView.dataSource = self
         registerCell()
-      //  connection()
-
-
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -50,11 +48,12 @@ class AddToCardVC: UIViewController, AddViewModelDelegate{
     func connection(){
         addModelView.AddCardSearch()
     }
-
-
+    
+    
 }
+//MARK: EXTENSION...
 extension AddToCardVC: UITableViewDelegate,UITableViewDataSource {
-  
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return addModelView.getTotalNumberOfAddCard() ?? 0
@@ -70,51 +69,45 @@ extension AddToCardVC: UITableViewDelegate,UITableViewDataSource {
             let formatter = NumberFormatter()
             formatter.locale = Locale.current
             formatter.numberStyle = .currency
-           
+            
             if let price = formatter.string(from: (addModelView.getAddCardPrice(at: indexPath.row))! as NSNumber) {
                 cell.priceLabel.text = price
             }
             cell.callBackOnButtonLogout = {
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: StoryBoardId.buyItemViewController) as! BuyItemViewController
                 let namOfItem = self.addModelView.getAddCardName(at: indexPath.row)
-                   vc.nameItem = "Add card For " + namOfItem!
+                vc.nameItem = "Add card For " + namOfItem!
                 self.navigationController?.pushViewController(vc, animated: true)
             }
-            
-            
             newCell = cell
         }
         return newCell
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-         if editingStyle == .delete {
+        if editingStyle == .delete {
             let str = addModelView.getAddCardDeletId(at: indexPath.row)!
             let size = str.reversed().firstIndex(of: "/") ?? str.count
-                let startWord = str.index(str.endIndex, offsetBy: -size)
-                let last = str[startWord...]
-                let sss = String(last)
-                print (sss)
+            let startWord = str.index(str.endIndex, offsetBy: -size)
+            let last = str[startWord...]
+            let sss = String(last)
+            print (sss)
             
             
             JsonDelete.del(id: sss) { (erro) in
-                    if let err = erro {
-                        print("errrrrr",err)
-                        return
-                    }
-                    print("delete")
+                if let err = erro {
+                    print("errrrrr",err)
+                    return
                 }
-            //// because of index path dont crash in the delet time in cell
+                print("delete")
+            }
             self.addModelView.getTotalNumberOf(at: indexPath.row)
-    
-
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
-          
-               self.tableView.reloadData()
-
-         
+            
+            self.tableView.reloadData()
+            
         }
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
@@ -125,5 +118,5 @@ extension AddToCardVC: UITableViewDelegate,UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-
+    
 }

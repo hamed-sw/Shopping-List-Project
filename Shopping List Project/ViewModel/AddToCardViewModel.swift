@@ -22,9 +22,7 @@ class AddCardViewModel {
             self?.delegate?.update()
         }
     }
-    
-    //MARK: GET THE DATA
-    
+        
     //MARK: GET DATA
     
     /// Function that returns total number of product

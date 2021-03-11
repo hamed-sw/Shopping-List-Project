@@ -13,8 +13,6 @@ struct CellIdentifire {
 }
 
 struct ButtonImages {
-    static let checkButton = "circle"
-    static let uncheckButton = "checkmark.circle.fill"
     
     static let likeButton = "heart.fill"
     static let unlikeButton = "heart"
