@@ -28,6 +28,7 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
         self.date.delegate = self
         self.cvv.delegate = self
         self.email.delegate = self
+        textFiledClears()
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController!.navigationBar.topItem!.title = "Back"
@@ -35,6 +36,8 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         cardNumber.resignFirstResponder()
         date.resignFirstResponder()
@@ -56,6 +59,19 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
+    func textFiledClears() {
+        cardNumber.clearButtonMode = .always
+        date.clearButtonMode = .always
+        cvv.clearButtonMode = .always
+        email.clearButtonMode = .always
+
+        cardNumber.clearButtonMode = .whileEditing
+        date.clearButtonMode = .whileEditing
+        cvv.clearButtonMode = .whileEditing
+        email.clearButtonMode = .whileEditing
+
+    }
 
     
     @IBAction func buyButtonTap(_ sender: Any) {
@@ -71,9 +87,25 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
             
             // show the alert
             self.present(alert, animated: true, completion: nil)
+            cardNumber.text = ""
+            cvv.text = ""
+            email.text = ""
+            date.text = ""
             return
         }
-        let alert = UIAlertController(title: "error", message: "Please fill out all required fields", preferredStyle: UIAlertController.Style.alert)
+        
+        alertFunction(error: "Error", massege: "Please fill out all required fields")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+         textField.resignFirstResponder() // dismiss keyboard
+         return true
+     }
+
+    
+    func alertFunction(error: String, massege: String) {
+        
+        let alert = UIAlertController(title: error , message: massege, preferredStyle: UIAlertController.Style.alert)
         
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
@@ -82,13 +114,6 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
         return
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-         textField.resignFirstResponder() // dismiss keyboard
-         return true
-     }
-    
-    
     
     
     

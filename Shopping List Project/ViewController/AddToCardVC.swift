@@ -33,10 +33,10 @@ class AddToCardVC: UIViewController, AddViewModelDelegate{
         tableView.reloadData()
         connection()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        tableView.reloadData()
+//    }
     private func registerCell() {
         tableView.register(UINib(nibName: CellIdentifire.addCardTableViewCell , bundle: nil), forCellReuseIdentifier: CellIdentifire.addCardTableViewCell)
     }
@@ -116,6 +116,10 @@ extension AddToCardVC: UITableViewDelegate,UITableViewDataSource {
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 123
     }
     
     

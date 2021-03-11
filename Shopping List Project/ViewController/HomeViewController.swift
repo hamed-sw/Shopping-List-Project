@@ -86,17 +86,6 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
         return 123
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        }else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
-        
-        tableView.reloadData()
-    }
-    
     func addItemToTheCard (addtoCard: String, massege: String) {
         let alert = UIAlertController(title: addtoCard , message: massege, preferredStyle: UIAlertController.Style.alert)
         
