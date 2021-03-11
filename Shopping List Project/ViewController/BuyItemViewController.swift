@@ -32,6 +32,8 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController!.navigationBar.topItem!.title = "Back"
         productName.text = nameItem
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         cardNumber.resignFirstResponder()
@@ -39,7 +41,20 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
         cvv.resignFirstResponder()
         email.resignFirstResponder()
     }
-    
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
     
 
     
@@ -67,6 +82,11 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
         return
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+         textField.resignFirstResponder() // dismiss keyboard
+         return true
+     }
     
     
     
