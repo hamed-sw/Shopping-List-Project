@@ -1,6 +1,6 @@
 # Product Name
 
-![icon](https://user-images.githubusercontent.com/79857557/110927903-e47c0780-832e-11eb-9358-773b6100a31c.jpeg)
+![icon2](https://user-images.githubusercontent.com/79857557/110933644-b51cc900-8335-11eb-9d62-9da071d3a530.png)
 
 
 ShoppingListProject mobile application makes the costumer life easy to see the item list with price, check those intrested item,  add to card and delete.
