@@ -43,6 +43,6 @@ In this mobile app the Cloud Firestore has been used, which is useful to call th
 
 # Run the application
 
-After loading in Iphone...
+After loading in IPhone, here is the demo...
 
-![Here is demo](https://user-images.githubusercontent.com/79857557/110944714-7989fb00-8345-11eb-9def-c04098a983fe.mp4)
+ https://user-images.githubusercontent.com/79857557/110944714-7989fb00-8345-11eb-9def-c04098a983fe.mp4
