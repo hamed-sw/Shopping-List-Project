@@ -31,11 +31,16 @@ You can use CocoaPods to install YourLibrary by adding it to your Podfile:
         end
 
 
-
-
-
-
-
 To download and cach images from the web into Mobile import UIKit and Kingfisher:
 * import UIKit
 * import Kingfisher
+
+# Architecture
+
+In this mobile app the Cloud Firestore has been used, which is useful to call the REST API directly.
+
+![archit](https://user-images.githubusercontent.com/79857557/110932218-db416980-8333-11eb-9795-157f464182fc.png)
+
+# Run the application
+
+Here is a demo...
