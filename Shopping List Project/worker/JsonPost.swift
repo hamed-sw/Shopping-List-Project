@@ -27,11 +27,11 @@ class JsonPost {
                 "stringValue": name
             ]
         ]]
-
-    var urlRequst = URLRequest(url: URL(string: "https://firestore.googleapis.com/v1/projects/online-46aa4/databases/(default)/documents/addData")!)
+    
+    guard let url = URL(string: "https://firestore.googleapis.com/v1/projects/online-46aa4/databases/(default)/documents/addData") else {return}
+    
+    var urlRequst = URLRequest(url: url)
     urlRequst.httpMethod = "post"
-
-
     do {
         let requsetbody = try JSONSerialization.data(withJSONObject: did, options: .prettyPrinted)
         urlRequst.httpBody = requsetbody
@@ -40,12 +40,11 @@ class JsonPost {
     }catch let error {
         debugPrint(error.localizedDescription)
     }
-    
 
     URLSession.shared.dataTask(with: urlRequst) { (data, resposns, error) in
         if (data != nil && data?.count != 0) {
-            let response = String(data: data!, encoding: .utf8)
-          //  print(response)
+            // let response = String(data: data!, encoding: .utf8)
+            //  print(response)
         }
     }.resume()
     

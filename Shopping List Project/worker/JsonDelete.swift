@@ -17,13 +17,13 @@ class JsonDelete {
         var urlReq = URLRequest(url: url)
         urlReq.httpMethod = "DELETE"
         URLSession.shared.dataTask(with: urlReq) { (data, resp, error) in
-            DispatchQueue.main.async {
+           // DispatchQueue.main.async {
                 if let error = error {
                     completion(error)
                     return
                 }
                 completion(nil)
-            }
+          //  }
             
         }.resume()
     }

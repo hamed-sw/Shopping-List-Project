@@ -10,6 +10,7 @@ import Foundation
 struct CellIdentifire {
     static let homeTableViewCell = "HomeTableViewCell"
     static let addCardTableViewCell = "AddCardTableViewCell"
+    let namee = "dddd"
 }
 
 struct ButtonImages {

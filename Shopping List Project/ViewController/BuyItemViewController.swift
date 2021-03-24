@@ -12,11 +12,15 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
     
     // Outlet
     
+    @IBOutlet weak var pay: UILabel!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var cardNumber: UITextField!
     @IBOutlet weak var date: UITextField!
     @IBOutlet weak var cvv: UITextField!
     @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var cardNumberLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     
     
     //Variable
@@ -31,13 +35,14 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
         textFiledClears()
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
-        self.navigationController!.navigationBar.topItem!.title = "Back"
+        //self.navigationController!.navigationBar.topItem!.title = "Back"
         productName.text = nameItem
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
 
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         cardNumber.resignFirstResponder()
         date.resignFirstResponder()
@@ -96,11 +101,11 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
         
         alertFunction(error: "Error", massege: "Please fill out all required fields")
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-         textField.resignFirstResponder() // dismiss keyboard
-         return true
-     }
+//
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//         textField.resignFirstResponder() // dismiss keyboard
+//         return true
+//     }
 
     
     func alertFunction(error: String, massege: String) {
@@ -116,6 +121,26 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    
-    
+}
+
+extension String {
+    func localizableString(loc: String) -> String {
+         let path = Bundle.main.path(forResource: loc, ofType: "lproj")
+           let bundle = Bundle(path: path!)
+            
+            return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: "", comment: "")
+        
+    }
+}
+
+extension BuyItemViewController {
+    func lableLangues (lang: String) {
+       // productName.text =  "productKey".localizableString(loc: lang)
+        cardNumberLabel.text = "CardNum".localizableString(loc: lang)
+        dateLabel.text = "Date".localizableString(loc: lang)
+      //  email.text = "emailkey".localizableString(loc: lang)
+       // cvv.text =  "cvvkey".localizableString(loc: lang)
+      //  pay.text = "paykey".localizableString(loc: lang)
+    }
+
 }

@@ -1,0 +1,45 @@
+/* 
+  Localizebale.strings
+  Shopping List Project
+
+  Created by Hamed Amiry on 23.03.2021.
+  
+*/
+/* Class = "UINavigationItem"; title = "Products"; ObjectID = "Ktp-nK-Nck"; */
+"productKey" = "Products";
+
+/* Class = "UILabel"; text = "Card number:"; ObjectID = "LQf-Yf-310"; */
+"Cardnumberkey" = "Card number:";
+
+/* Class = "UILabel"; text = "Date:"; ObjectID = "Ogt-bg-ffG"; */
+"datekey" = "Date:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "W9U-ah-V0W"; */
+
+
+"emailkey" = "E-mail:";
+
+"cvvkey" = "CVV:";
+
+
+"paykey" = "pay";
+
+
+/* Class = "UINavigationItem"; title = "Products"; ObjectID = "Ktp-nK-Nck"; */
+"productKey" = "Товары";
+
+/* Class = "UILabel"; text = "Card number:"; ObjectID = "LQf-Yf-310"; */
+"Cardnumberkey" = "номер карты:";
+
+/* Class = "UILabel"; text = "Date:"; ObjectID = "Ogt-bg-ffG"; */
+"datekey" = "Дата:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "W9U-ah-V0W"; */
+
+
+"emailkey" = "Эл.адрес:";
+
+"cvvkey" = "CVV:";
+
+
+"upaykey" = "платить";
