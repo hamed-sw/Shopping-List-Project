@@ -30,14 +30,12 @@ class AddToCardVC: UIViewController, AddViewModelDelegate{
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationItem.title = "Add To Card "
         self.tabBarController?.tabBar.isHidden = false
         tableView.reloadData()
         connection()
     }
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        tableView.reloadData()
-//    }
+
     private func registerCell() {
         tableView.register(UINib(nibName: CellIdentifire.addCardTableViewCell , bundle: nil), forCellReuseIdentifier: CellIdentifire.addCardTableViewCell)
     }
@@ -75,10 +73,12 @@ extension AddToCardVC: UITableViewDelegate,UITableViewDataSource {
                 cell.priceLabel.text = price
             }
             cell.callBackOnButtonLogout = {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: StoryBoardId.buyItemViewController) as! BuyItemViewController
-                let namOfItem = self.addModelView.getAddCardName(at: indexPath.row)
-                vc.nameItem = "Add card For " + namOfItem!
-                self.navigationController?.pushViewController(vc, animated: true)
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: StoryBoardId.buyItemViewController) as? BuyItemViewController {
+                    if   let namOfItem = self.addModelView.getAddCardName(at: indexPath.row){
+                        vc.nameItem = "Add card For " + namOfItem
+                    }
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             }
             cell.accessoryType = cell.isSelected ? .checkmark : .none
 
@@ -88,7 +88,7 @@ extension AddToCardVC: UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let str = addModelView.getAddCardDeletId(at: indexPath.row)!
+            guard let str = addModelView.getAddCardDeletId(at: indexPath.row) else {return}
             let size = str.reversed().firstIndex(of: "/") ?? str.count
             let startWord = str.index(str.endIndex, offsetBy: -size)
             let last = str[startWord...]
@@ -96,14 +96,15 @@ extension AddToCardVC: UITableViewDelegate,UITableViewDataSource {
             print (sss)
             
             
-            JsonDelete.del(id: sss) { (erro) in
-                if let err = erro {
-                    print("errrrrr",err)
-                    return
-                }
-                print("delete")
-            }
-            self.addModelView.getTotalNumberOf(at: indexPath.row)
+//            JsonDelete.del(id: sss) { (erro) in
+//                if let err = erro {
+//                    print("errrrrr",err)
+//                    return
+//                }
+//                print("delete")
+//            }
+            self.addModelView.deleteTheProductFromAddCard(productId: sss)
+           var _ = self.addModelView.getTotalNumberOf(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             
             self.tableView.reloadData()

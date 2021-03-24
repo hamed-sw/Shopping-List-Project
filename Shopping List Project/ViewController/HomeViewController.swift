@@ -13,6 +13,8 @@ class HomeViewController: UIViewController,HomeViewModelDelegate {
     
     
     // Outlet
+    @IBOutlet weak var rusButton: UIBarButtonItem!
+    @IBOutlet weak var englishtButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -32,7 +34,27 @@ class HomeViewController: UIViewController,HomeViewModelDelegate {
         registerCell()
         self.tableView.allowsMultipleSelection = true
     }
-
+    
+    @IBAction func englishButtonLanguage(_ sender: Any) {
+        navigationItem.title =  "Product".localizableString(loc: "en")
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "AddToCardVC" {
+                let vc = segue.destination as! AddToCardVC
+                vc.navigationItem.title = "AddCard".localizableString(loc: "en")
+            }
+        }
+        
+    }
+    
+    @IBAction func rusButtonLanguage(_ sender: Any) {
+        navigationItem.title = "Product".localizableString(loc: "ru")
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "AddToCardVC" {
+                let vc = segue.destination as! AddToCardVC
+                vc.navigationItem.title = "AddCard".localizableString(loc: "ru")
+            }
+        }
+    }
     private func registerCell() {
         tableView.register(UINib(nibName: CellIdentifire.homeTableViewCell , bundle: nil), forCellReuseIdentifier: CellIdentifire.homeTableViewCell)
     }
@@ -45,6 +67,16 @@ class HomeViewController: UIViewController,HomeViewModelDelegate {
         }
     }
     
+}
+
+extension String {
+    func localizableStringAll(loc: String) -> String {
+         let path = Bundle.main.path(forResource: loc, ofType: "lproj")
+           let bundle = Bundle(path: path!)
+            
+            return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: "", comment: "")
+        
+    }
 }
 
 extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
@@ -62,22 +94,25 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
             if let urlString = viewModel.getProductImage(at: indexPath.row){
                 cell.productImage.kf.setImage(with: URL(string: urlString))
             }
-            
             let formatter = NumberFormatter()
             formatter.locale = Locale.current
             formatter.numberStyle = .currency
-            if let price = formatter.string(from: (viewModel.getPrductPrice(at: indexPath.row))! as NSNumber) {
-                cell.priceOfProductLabel.text = price
+            if let p = viewModel.getPrductPrice(at: indexPath.row) {
+                 let price = formatter.string(from: (p) as NSNumber)
+                    cell.priceOfProductLabel.text = price
+                
             }
             cell.buttonPressed = {
-                let priceOfitme = self.viewModel.getPrductPrice(at: indexPath.row)!
-                let pictureOfItem = self.viewModel.getProductImage(at: indexPath.row)!
-                let numid = self.viewModel.getProuductid(at: indexPath.row)!
-                let nameOfItem = self.viewModel.getProuductName(at: indexPath.row)!
+                if let priceOfitme = self.viewModel.getPrductPrice(at: indexPath.row),
+                let pictureOfItem = self.viewModel.getProductImage(at: indexPath.row),
+                let numid = self.viewModel.getProuductid(at: indexPath.row),
+                    let nameOfItem = self.viewModel.getProuductName(at: indexPath.row) {
                 JsonPost.addDataToCard(prices: priceOfitme, pic: pictureOfItem, nu: numid, names: nameOfItem)
                 self.addItemToTheCard(addtoCard: "AddToCard", massege: "The Item is Sucessfuly add it in your list ")
+                }
             }
             cell.accessoryType = cell.isSelected ? .checkmark : .none
+            cell.delegate = self
             newCell = cell
         }
         return newCell
@@ -103,9 +138,26 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.accessoryType = .none
+        
 
     }
     
     
     
+}
+
+extension HomeViewController: TableCellDelegate{
+
+    
+    func checkAndUpdate(cell: HomeTableViewCell) {
+        guard let indexpat = tableView.indexPath(for: cell) else {return}
+        if  let namee = self.viewModel.getProuductName(at: indexpat.row),
+            let pricee = self.viewModel.getPrductPrice(at: indexpat.row),
+            let imagee = self.viewModel.getProductImage(at: indexpat.row),
+            let idd = self.viewModel.getProuductid(at: indexpat.row) {
+            viewModel.ddd(pirces: pricee, image: imagee, number: idd, names: namee)
+            self.addItemToTheCard(addtoCard: "AddToCard", massege: "The Item is Sucessfuly add it in your list ")
+        }
+        
+    }
 }

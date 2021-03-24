@@ -22,6 +22,16 @@ class AddCardViewModel {
             self?.delegate?.update()
         }
     }
+    
+    func deleteTheProductFromAddCard(productId:String){
+        JsonDelete.del(id: productId) { (error) in
+            if let error = error {
+                print("we have error for delete\(error)")
+            }else {
+                print("the producet deleted")
+            }
+        }
+    }
         
     //MARK: GET DATA
     

@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddCardTableViewCell" rowHeight="120" id="KGk-i7-Jjw" customClass="AddCardTableViewCell" customModule="Shopping_List_Project" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddCardTableViewCell" rowHeight="123" id="KGk-i7-Jjw" customClass="AddCardTableViewCell" customModule="Shopping_List_Project" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="315" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -20,8 +20,8 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KQA-qU-tfP">
                         <rect key="frame" x="10" y="10" width="100" height="100"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="dU6-lP-8kX"/>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="uc3-Iz-y9Q"/>
+                            <constraint firstAttribute="height" constant="100" id="dU6-lP-8kX"/>
+                            <constraint firstAttribute="width" constant="100" id="uc3-Iz-y9Q"/>
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ECO-fz-j3w">
@@ -55,12 +55,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="ECO-fz-j3w" firstAttribute="leading" secondItem="KQA-qU-tfP" secondAttribute="trailing" constant="10" id="4XD-of-4Fr"/>
+                    <constraint firstItem="ECO-fz-j3w" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8hz-RM-vS6"/>
+                    <constraint firstItem="KQA-qU-tfP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9Ny-1I-Xl7"/>
                     <constraint firstItem="KQA-qU-tfP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="RhH-uY-Yxn"/>
-                    <constraint firstItem="ECO-fz-j3w" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="TVP-nZ-LrG"/>
                     <constraint firstAttribute="trailing" secondItem="ECO-fz-j3w" secondAttribute="trailing" constant="20" id="rCY-uQ-5gU"/>
-                    <constraint firstAttribute="bottom" secondItem="ECO-fz-j3w" secondAttribute="bottom" constant="10" id="rur-5r-4kl"/>
-                    <constraint firstAttribute="bottom" secondItem="KQA-qU-tfP" secondAttribute="bottom" constant="10" id="tKN-FA-zWt"/>
-                    <constraint firstItem="KQA-qU-tfP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="xVl-wX-eYv"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

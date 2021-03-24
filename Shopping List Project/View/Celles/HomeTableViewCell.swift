@@ -31,7 +31,8 @@ class HomeTableViewCell: UITableViewCell {
 
     
     @IBAction func addCardButtonTap(_ sender: Any) {
-        buttonPressed()
+       // buttonPressed()
+        delegate?.checkAndUpdate(cell: self)
     }
  
 }

@@ -25,7 +25,9 @@ class HomeViewModel {
         }
     }
     
-    
+    func ddd(pirces payment: Double, image pictuer: String,number num: String,names name:String){
+        JsonPost.addDataToCard(prices: payment, pic: pictuer, nu: num, names: name)
+    }
     
     //MARK: GET DATA
     
