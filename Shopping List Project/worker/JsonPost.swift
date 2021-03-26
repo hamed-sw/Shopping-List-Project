@@ -10,9 +10,8 @@ import UIKit
 
 class JsonPost {
 
+// MARK: FOR POST
   static  func addDataToCard(prices price: Double ,pic image : String,nu id: String,names name: String ) {
-        
-        
         let did = ["fields": [
             "price": [
                 "doubleValue": price
@@ -27,7 +26,6 @@ class JsonPost {
                 "stringValue": name
             ]
         ]]
-    
     guard let url = URL(string: "https://firestore.googleapis.com/v1/projects/online-46aa4/databases/(default)/documents/addData") else {return}
     
     var urlRequst = URLRequest(url: url)
@@ -40,7 +38,6 @@ class JsonPost {
     }catch let error {
         debugPrint(error.localizedDescription)
     }
-
     URLSession.shared.dataTask(with: urlRequst) { (data, resposns, error) in
         if (data != nil && data?.count != 0) {
             // let response = String(data: data!, encoding: .utf8)
@@ -50,7 +47,7 @@ class JsonPost {
     
  }
     
- //MARK: FOR DECODING
+ //MARK: FOR GET
 typealias success = (Products) -> ()
     static func parseJsonFile (onSucess:@escaping success) {
         if let url = URL(string: "https://firestore.googleapis.com/v1/projects/online-46aa4/databases/(default)/documents/addData") {
@@ -67,7 +64,5 @@ typealias success = (Products) -> ()
         }
         
     }
-    
-    
     
 }
