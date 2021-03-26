@@ -37,6 +37,7 @@
 		FA1F6158260B9356004EE66F /* FetBackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1F6156260B9356004EE66F /* FetBackTableViewCell.xib */; };
 		FA1F615E260B943E004EE66F /* FetBackViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1F615D260B943E004EE66F /* FetBackViewmodel.swift */; };
 		FA1F6163260C5B86004EE66F /* SubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1F6162260C5B85004EE66F /* SubmitViewController.swift */; };
+		FA1F616E260D9207004EE66F /* FetBackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1F616D260D9206004EE66F /* FetBackViewModel.swift */; };
 		FA2BCC2325FA2B8E0073FECF /* Shopping_List_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BCC2225FA2B8E0073FECF /* Shopping_List_ProjectTests.swift */; };
 		FA2BCC2D25FA2C6C0073FECF /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BCC2C25FA2C6C0073FECF /* HomeViewModelTest.swift */; };
 		FA2BCC3125FA2C8A0073FECF /* AddToCardViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BCC3025FA2C8A0073FECF /* AddToCardViewModelTest.swift */; };
@@ -96,6 +97,7 @@
 		FA1F6156260B9356004EE66F /* FetBackTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FetBackTableViewCell.xib; sourceTree = "<group>"; };
 		FA1F615D260B943E004EE66F /* FetBackViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetBackViewmodel.swift; sourceTree = "<group>"; };
 		FA1F6162260C5B85004EE66F /* SubmitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitViewController.swift; sourceTree = "<group>"; };
+		FA1F616D260D9206004EE66F /* FetBackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetBackViewModel.swift; sourceTree = "<group>"; };
 		FA2BCC2025FA2B8E0073FECF /* Shopping List ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shopping List ProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2BCC2225FA2B8E0073FECF /* Shopping_List_ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping_List_ProjectTests.swift; sourceTree = "<group>"; };
 		FA2BCC2425FA2B8E0073FECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				FA2BCC2C25FA2C6C0073FECF /* HomeViewModelTest.swift */,
 				FA2BCC3025FA2C8A0073FECF /* AddToCardViewModelTest.swift */,
 				FA2BCC2425FA2B8E0073FECF /* Info.plist */,
+				FA1F616D260D9206004EE66F /* FetBackViewModel.swift */,
 			);
 			path = "Shopping List ProjectTests";
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA2BCC2325FA2B8E0073FECF /* Shopping_List_ProjectTests.swift in Sources */,
+				FA1F616E260D9207004EE66F /* FetBackViewModel.swift in Sources */,
 				FA2BCC3125FA2C8A0073FECF /* AddToCardViewModelTest.swift in Sources */,
 				FA2BCC2D25FA2C6C0073FECF /* HomeViewModelTest.swift in Sources */,
 			);

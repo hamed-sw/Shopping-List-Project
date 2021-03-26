@@ -9,7 +9,7 @@ import UIKit
 
 class JsonParsing {
     
-    
+// MARK: FOR GET
     typealias success = (Products) -> ()
     static func parseJsonFile (onSucess:@escaping success) {
         if let url = URL(string: "https://firestore.googleapis.com/v1/projects/online-46aa4/databases/(default)/documents/Watches") {

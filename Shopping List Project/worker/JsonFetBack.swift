@@ -9,12 +9,9 @@ import Foundation
 import UIKit
 
 class JsonFetBack {
-    var controller = FetBackViewController()
 
-
+// MARK: FOR POST
     static  func fetbackHere(names name: String, bool boolean: Bool  ) {
-        
-        
         let did = ["fields": [
             "fetback": [
                 "stringValue": name
@@ -23,7 +20,6 @@ class JsonFetBack {
                 "booleanValue": boolean
             ]
         ]]
-    
     guard let url = URL(string: "https://firestore.googleapis.com/v1/projects/online-46aa4/databases/(default)/documents/fetback") else {return}
     
     var urlRequst = URLRequest(url: url)
@@ -36,7 +32,6 @@ class JsonFetBack {
     }catch let error {
         debugPrint(error.localizedDescription)
     }
-
     URLSession.shared.dataTask(with: urlRequst) { (data, resposns, error) in
         if (data != nil && data?.count != 0) {
             // let response = String(data: data!, encoding: .utf8)
@@ -46,7 +41,7 @@ class JsonFetBack {
     
  }
     
- //MARK: FOR DECODING
+ //MARK: FOR GET
 typealias success = (Fetback) -> ()
     static func parseJsonFile (onSucess:@escaping success) {
         if let url = URL(string: "https://firestore.googleapis.com/v1/projects/online-46aa4/databases/(default)/documents/fetback") {
@@ -66,7 +61,7 @@ typealias success = (Fetback) -> ()
     
     
 
-
+// MARK: FOR DELETE
 
      static  func delete(id: String, completion: @escaping (Error?) -> ()){
           guard let url = URL(string: "https://firestore.googleapis.com/v1/projects/online-46aa4/databases/(default)/documents/fetback/\(id)") else {return}
