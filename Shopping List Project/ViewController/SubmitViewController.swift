@@ -38,11 +38,16 @@ class SubmitViewController: UIViewController, UITextViewDelegate {
     }
 
     @IBAction func submitBtnTap(_ sender: UIButton) {
-        viewModel.insertFetback(insert: fetbackHere.text, forBool: false)
-        fetbackHere.text = nil
-        alert(title: "FetBack", massage: "Your Fetback Added successfuly")
-        
+        if fetbackHere.text != nil && fetbackHere.textColor == UIColor.lightGray {
+            alert(title: "Error", massage: "Please Enter...")
+        }else if fetbackHere.text == ""  && fetbackHere.textColor == UIColor.black {
+            alert(title: "Error", massage: "Please Enter...")
+        } else {
+            viewModel.insertFetback(insert: fetbackHere.text, forBool: false)
+            fetbackHere.text = nil
+            alert(title: "FetBack", massage: "Your Fetback Added successfuly")
         }
+    }
     func alert(title: String, massage: String) {
         let alert = UIAlertController(title: title, message: massage, preferredStyle: UIAlertController.Style.alert)
         // add an action (button)
