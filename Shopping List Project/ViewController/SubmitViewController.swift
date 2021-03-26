@@ -15,7 +15,6 @@ class SubmitViewController: UIViewController, UITextViewDelegate {
         didSet{
             fetbackHere.text = "write your fetback here..."
             fetbackHere.textColor = UIColor.lightGray
-            
         }
     }
     
@@ -26,17 +25,11 @@ class SubmitViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetbackHere.delegate = self
-        
-
         }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
-       // self.navigationController!.navigationBar.isHidden = true
-
-
-        
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
         if fetbackHere.textColor == UIColor.lightGray {
@@ -48,17 +41,17 @@ class SubmitViewController: UIViewController, UITextViewDelegate {
     @IBAction func submitBtnTap(_ sender: UIButton) {
         viewModel.insertFetback(insert: fetbackHere.text, forBool: false)
         fetbackHere.text = nil
-        let alert = UIAlertController(title: "FetBack", message: "Your Fetback Added successfuly", preferredStyle: UIAlertController.Style.alert)
+        alert(title: "FetBack", massage: "Your Fetback Added successfuly")
         
+        }
+    func alert(title: String, massage: String) {
+        let alert = UIAlertController(title: title, message: massage, preferredStyle: UIAlertController.Style.alert)
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
         // show the alert
         self.present(alert, animated: true, completion: nil)
-        }
-
-    
-    
-
+        
+    }
 
 }

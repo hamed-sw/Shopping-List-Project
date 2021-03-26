@@ -16,14 +16,11 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     lazy var viewModel = FetbackModel()
     var arraySelect = [String]()
-   // var aarr = [Int]()
     var arraypath = [String]()
     var forDelet: (() -> ()) = {}
-    //var forBollean:Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        touchdata()
         self.tableView.reloadData()
         self.viewModel.delegate = self
         registerCell()
@@ -49,25 +46,12 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func connections() {
         viewModel.fetbackToProduct()
     }
-    func touchdata() {
-      //  viewModel.getTotalNumberForRemove(at: )
-//        let cell = FetBackTableViewCell()
-//        let indexpath = tableView.indexPath(for: cell)
-//        [datanew(name: self.F, islecet: self.viewModel.getBoolean(at: indexpath!.row))]
-    }
     @IBAction func trashBin(_ sender: Any) {
-        
-        
         for num in self.arraypath {
             self.viewModel.deleteTheProductFromFetback(productId: num)
         }
-        
-
         arraypath.removeAll()
       forDelet()
-        
-        
-        
     }
     
     @IBAction func addFetBackTap(_ sender: Any) {
@@ -82,7 +66,6 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var newCell = FetBackTableViewCell()
         if let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifire.fetbackCell, for: indexPath) as? FetBackTableViewCell {
-          //  cell.fetbackLabel.text = viewModel.getFetBack(at: indexPath.row)
             cell.fetbackLabel.text = viewModel.getFetBack(at: indexPath.row)
             newCell = cell
 
@@ -91,7 +74,6 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
      
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      //  self.selectDeselectCell(tableView: tableView, indexpath: indexPath)
         guard let str = self.viewModel.getFetBackDelet(at: indexPath.row) else {return}
         let size = str.reversed().firstIndex(of: "/") ?? str.count
         let startWord = str.index(str.endIndex, offsetBy: -size)
@@ -101,7 +83,6 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
         print("printselect")
         arraypath.append(sss)
         print(arraypath)
-       // print(aarr)
         forDelet = {
             tableView.beginUpdates()
             var _ = self.viewModel.getTotalNumberForRemove(at: indexPath.row)
@@ -114,8 +95,6 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-       // self.selectDeselectCell(tableView: tableView, indexpath: indexPath)
-        //forBollean = viewModel.getBoolean(at: indexPath.row)
         guard let str = self.viewModel.getFetBackDelet(at: indexPath.row) else {return}
         let size = str.reversed().firstIndex(of: "/") ?? str.count
         let startWord = str.index(str.endIndex, offsetBy: -size)
@@ -130,8 +109,6 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 break
             }
         }
-       // print(arraypath)
-        //aarr.append(indexPath.row)
         print(arraypath)
         print(indexPath.row)
 
@@ -152,18 +129,5 @@ extension FetBackViewController: FetBackModelDelegate {
 
         
     }
-    
-//    func tableView(_ tableView: UITableView, shouldBeginMultipleSelectionInteractionAt indexPath: IndexPath) -> Bool {
-//        true
-//    }
-//    func tableView(_ tableView: UITableView, didBeginMultipleSelectionInteractionAt indexPath: IndexPath) {
-//        tableView.setEditing(true, animated: true)
-//    }
-//    func tableViewDidEndMultipleSelectionInteraction(_ tableView: UITableView) {
-//       // print("\(#function)")
-//
-//    }
-//
-    
-    
+  
 }
