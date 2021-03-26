@@ -61,17 +61,20 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
         selectAndDeselect.title = "Select"
     }
     @IBAction func trashBin(_ sender: Any) {
-
-        // tableView.isEditing.toggle()
         if  tableView.isEditing == true && !arraypath.isEmpty{
-            for number in self.arraypath {
-                self.viewModel.deleteTheProductFromFetback(productId: number)
-                tableView.reloadData()
+            for numberID in self.arraypath {
+                self.viewModel.deleteTheProductFromFetback(productId: numberID)
+               print("id which was delelted\(numberID)")
+                    self.tableView.reloadData()
             }
             arraypath.removeAll()
-            connections()
-            forDelet()
-            viewModel.fetbackToProduct()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.connections()
+            }
+           // connections()
+            //forDelet()
+           // viewModel.fetbackToProduct()
             tableView.reloadData()
         }
         tableView.isEditing = false
@@ -110,20 +113,25 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
             print(arraypath)
         }
         forDelet = {
-            for n in self.arrayIndexpath {
-                
-                print(n)
-                tableView.beginUpdates()
-                var _ = self.viewModel.getTotalNumberForRemove(at: indexPath.row)
-                self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                tableView.reloadData()
-                
-                tableView.endUpdates()
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.connections()
-                }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.connections()
             }
+           // for n in self.arraypath {
+                
+//                print(n)
+//                tableView.beginUpdates()
+//                var _ = self.viewModel.getTotalNumberForRemove(at: indexPath.row)
+//                self.tableView.deleteRows(at: [indexPath], with: .fade)
+//                tableView.reloadData()
+//
+//                tableView.endUpdates()
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                    self.connections()
+//                }
+         //   }
             
         }
     }
