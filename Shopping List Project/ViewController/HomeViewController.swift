@@ -10,8 +10,6 @@ import Kingfisher
 
 class HomeViewController: UIViewController,HomeViewModelDelegate {
     
-    
-    
     // Outlet
     @IBOutlet weak var rusButton: UIBarButtonItem!
     @IBOutlet weak var englishtButton: UIBarButtonItem!
@@ -20,10 +18,6 @@ class HomeViewController: UIViewController,HomeViewModelDelegate {
     
     //Variable
     lazy var viewModel = HomeViewModel()
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
@@ -36,24 +30,12 @@ class HomeViewController: UIViewController,HomeViewModelDelegate {
     }
     
     @IBAction func englishButtonLanguage(_ sender: Any) {
-        navigationItem.title =  "Product".localizableString(loc: "en")
-        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "AddToCardVC" {
-                let vc = segue.destination as! AddToCardVC
-                vc.navigationItem.title = "AddCard".localizableString(loc: "en")
-            }
-        }
+     languages(loc: "en")
         
     }
     
     @IBAction func rusButtonLanguage(_ sender: Any) {
-        navigationItem.title = "Product".localizableString(loc: "ru")
-        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "AddToCardVC" {
-                let vc = segue.destination as! AddToCardVC
-                vc.navigationItem.title = "AddCard".localizableString(loc: "ru")
-            }
-        }
+    languages(loc: "ru")
     }
     private func registerCell() {
         tableView.register(UINib(nibName: CellIdentifire.homeTableViewCell , bundle: nil), forCellReuseIdentifier: CellIdentifire.homeTableViewCell)
@@ -69,16 +51,7 @@ class HomeViewController: UIViewController,HomeViewModelDelegate {
     
 }
 
-extension String {
-    func localizableStringAll(loc: String) -> String {
-         let path = Bundle.main.path(forResource: loc, ofType: "lproj")
-           let bundle = Bundle(path: path!)
-            
-            return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: "", comment: "")
-        
-    }
-}
-
+// MARK:
 extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,13 +67,10 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
             if let urlString = viewModel.getProductImage(at: indexPath.row){
                 cell.productImage.kf.setImage(with: URL(string: urlString))
             }
-            let formatter = NumberFormatter()
-            formatter.locale = Locale.current
-            formatter.numberStyle = .currency
-            if let p = viewModel.getPrductPrice(at: indexPath.row) {
-                 let price = formatter.string(from: (p) as NSNumber)
+            
+            if let aboutPrice = viewModel.getPrductPrice(at: indexPath.row) {
+                let price = viewModel.priceFormatter().string(from: (aboutPrice) as NSNumber)
                     cell.priceOfProductLabel.text = price
-                
             }
             cell.buttonPressed = {
                 if let priceOfitme = self.viewModel.getPrductPrice(at: indexPath.row),
@@ -122,7 +92,7 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
         return 123
     }
     
-    func addItemToTheCard (addtoCard: String, massege: String) {
+   public func addItemToTheCard (addtoCard: String, massege: String) {
         let alert = UIAlertController(title: addtoCard , message: massege, preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
@@ -142,13 +112,21 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
 
     }
     
-    
-    
 }
 
+// MARK:
 extension HomeViewController: TableCellDelegate{
-
     
+    func languages(loc: String) {
+        navigationItem.title = "Product".localizableString(loc: loc)
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "AddToCardVC" {
+                let vc = segue.destination as! AddToCardVC
+                vc.navigationItem.title = "AddCard".localizableString(loc: loc)
+            }
+        }
+        
+    }
     func checkAndUpdate(cell: HomeTableViewCell) {
         guard let indexpat = tableView.indexPath(for: cell) else {return}
         if  let namee = self.viewModel.getProuductName(at: indexpat.row),
@@ -158,6 +136,15 @@ extension HomeViewController: TableCellDelegate{
             viewModel.ddd(pirces: pricee, image: imagee, number: idd, names: namee)
             self.addItemToTheCard(addtoCard: "AddToCard", massege: "The Item is Sucessfuly add it in your list ")
         }
+        
+    }
+}
+extension String {
+    func localizableStringAll(loc: String) -> String {
+         let path = Bundle.main.path(forResource: loc, ofType: "lproj")
+           let bundle = Bundle(path: path!)
+            
+            return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: "", comment: "")
         
     }
 }

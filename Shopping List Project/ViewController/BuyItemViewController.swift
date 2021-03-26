@@ -24,7 +24,6 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
     
     
     //Variable
-    
     var nameItem : String!
     
     override func viewDidLoad() {
@@ -40,8 +39,6 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    
-
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         cardNumber.resignFirstResponder()
@@ -63,8 +60,6 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
             self.view.frame.origin.y = 0
         }
     }
-    
-    
     func textFiledClears() {
         cardNumber.clearButtonMode = .always
         date.clearButtonMode = .always
@@ -77,50 +72,31 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
         email.clearButtonMode = .whileEditing
 
     }
-
     
     @IBAction func buyButtonTap(_ sender: Any) {
         if let bankCardNumber = cardNumber.text, !bankCardNumber.isEmpty,
            let bankCardDate = date.text, !bankCardDate.isEmpty,
            let securityCard = cvv.text, !securityCard.isEmpty,
            let userEmail = email.text, !userEmail.isEmpty {
-            
-            let alert = UIAlertController(title: "Shopping is Sucess", message: "Thanks for shopping", preferredStyle: UIAlertController.Style.alert)
-            
-            // add an action (button)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            
-            // show the alert
-            self.present(alert, animated: true, completion: nil)
+            alertFunction(error: "Shopping is Sucess", massege: "Thanks for shopping")
             cardNumber.text = ""
             cvv.text = ""
             email.text = ""
             date.text = ""
             return
         }
-        
         alertFunction(error: "Error", massege: "Please fill out all required fields")
     }
-//
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//         textField.resignFirstResponder() // dismiss keyboard
-//         return true
-//     }
-
     
     func alertFunction(error: String, massege: String) {
         
         let alert = UIAlertController(title: error , message: massege, preferredStyle: UIAlertController.Style.alert)
-        
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
         // show the alert
         self.present(alert, animated: true, completion: nil)
         return
     }
-    
-    
 }
 
 extension String {
@@ -129,7 +105,6 @@ extension String {
            let bundle = Bundle(path: path!)
             
             return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: "", comment: "")
-        
     }
 }
 

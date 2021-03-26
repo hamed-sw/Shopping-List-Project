@@ -10,8 +10,6 @@ import Kingfisher
 
 class AddToCardVC: UIViewController, AddViewModelDelegate{
     
-    
-    
     // Outlet
     @IBOutlet weak var tableView: UITableView!
     
@@ -65,11 +63,8 @@ extension AddToCardVC: UITableViewDelegate,UITableViewDataSource {
                 cell.addImage.kf.setImage(with: URL(string: urlString))
             }
             cell.nameLabel.text = addModelView.getAddCardName(at: indexPath.row)
-            let formatter = NumberFormatter()
-            formatter.locale = Locale.current
-            formatter.numberStyle = .currency
             
-            if let price = formatter.string(from: (addModelView.getAddCardPrice(at: indexPath.row))! as NSNumber) {
+            if let price = addModelView.priceFormatter().string(from: (addModelView.getAddCardPrice(at: indexPath.row))! as NSNumber) {
                 cell.priceLabel.text = price
             }
             cell.callBackOnButtonLogout = {
@@ -92,21 +87,11 @@ extension AddToCardVC: UITableViewDelegate,UITableViewDataSource {
             let size = str.reversed().firstIndex(of: "/") ?? str.count
             let startWord = str.index(str.endIndex, offsetBy: -size)
             let last = str[startWord...]
-            let sss = String(last)
-            print (sss)
-            
-            
-//            JsonDelete.del(id: sss) { (erro) in
-//                if let err = erro {
-//                    print("errrrrr",err)
-//                    return
-//                }
-//                print("delete")
-//            }
-            self.addModelView.deleteTheProductFromAddCard(productId: sss)
+            let deleteId = String(last)
+            print (deleteId)
+            self.addModelView.deleteTheProductFromAddCard(productId: deleteId)
            var _ = self.addModelView.getTotalNumberOf(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            
             self.tableView.reloadData()
             
         }

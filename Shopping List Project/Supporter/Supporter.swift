@@ -10,7 +10,8 @@ import Foundation
 struct CellIdentifire {
     static let homeTableViewCell = "HomeTableViewCell"
     static let addCardTableViewCell = "AddCardTableViewCell"
-    let namee = "dddd"
+    static let fetbackCell = "FetBackTableViewCell"
+    
 }
 
 struct ButtonImages {
@@ -20,4 +21,6 @@ struct ButtonImages {
 }
 struct StoryBoardId {
     static let buyItemViewController = "BuyItemViewController"
+    static let SubmitVC = "SubmitViewController"
+
 }
