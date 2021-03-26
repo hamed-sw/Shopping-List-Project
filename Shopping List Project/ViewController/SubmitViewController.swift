@@ -17,7 +17,6 @@ class SubmitViewController: UIViewController, UITextViewDelegate {
             fetbackHere.textColor = UIColor.lightGray
         }
     }
-    
     @IBOutlet weak var submitbtn: UIButton!
     
     

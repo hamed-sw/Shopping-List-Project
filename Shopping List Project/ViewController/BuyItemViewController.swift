@@ -89,7 +89,6 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
     }
     
     func alertFunction(error: String, massege: String) {
-        
         let alert = UIAlertController(title: error , message: massege, preferredStyle: UIAlertController.Style.alert)
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
