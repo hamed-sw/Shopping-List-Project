@@ -12,11 +12,17 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
  
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addFetBack: UIBarButtonItem!
+    @IBOutlet weak var selectAndDeselect: UIBarButtonItem! {
+        didSet {
+            selectAndDeselect.title = "Unselect"
+        }
+    }
     
     
     lazy var viewModel = FetbackModel()
-    var arraySelect = [String]()
+    //var arraySelect = [String]()
     var arraypath = [String]()
+    var arrayIndexpath = [Int]()
     var forDelet: (() -> ()) = {}
     
     override func viewDidLoad() {
@@ -24,6 +30,7 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.tableView.reloadData()
         self.viewModel.delegate = self
         registerCell()
+        connections()
        // tableView.isEditing = true
         tableView.allowsSelectionDuringEditing = true
         tableView.allowsMultipleSelectionDuringEditing = true
@@ -39,6 +46,8 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+        arraypath.removeAll()
+        arrayIndexpath.removeAll()
     }
     
     private func registerCell() {
@@ -47,17 +56,26 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func connections() {
         viewModel.fetbackToProduct()
     }
+    @IBAction func selectDeselectTap(_ sender: Any) {
+        tableView.isEditing = true
+        selectAndDeselect.title = "Select"
+    }
     @IBAction func trashBin(_ sender: Any) {
 
-        tableView.isEditing.toggle()
-        if  tableView.isEditing == false {
-        for number in self.arraypath {
-            self.viewModel.deleteTheProductFromFetback(productId: number)
+        // tableView.isEditing.toggle()
+        if  tableView.isEditing == true && !arraypath.isEmpty{
+            for number in self.arraypath {
+                self.viewModel.deleteTheProductFromFetback(productId: number)
+                tableView.reloadData()
+            }
+            arraypath.removeAll()
+            connections()
+            forDelet()
+            viewModel.fetbackToProduct()
+            tableView.reloadData()
         }
-        arraypath.removeAll()
-        connections()
-        forDelet()
-        }
+        tableView.isEditing = false
+        selectAndDeselect.title = "UnSelect"
     }
     
     @IBAction func addFetBackTap(_ sender: Any) {
@@ -82,34 +100,36 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.isEditing == true {
             guard let str = self.viewModel.getFetBackDelet(at: indexPath.row) else {return}
-//            let size = str.reversed().firstIndex(of: "/") ?? str.count
-//            let startWord = str.index(str.endIndex, offsetBy: -size)
-//            let last = str[startWord...]
-//            let sss = String(last)
             let takeId = takeIDfromUrl(string: str)
            // print (sss)
             print("printselect")
             arraypath.append(takeId)
+            arrayIndexpath.append(indexPath.row)
+            print(indexPath.row)
+            print(arrayIndexpath)
             print(arraypath)
         }
         forDelet = {
-            tableView.beginUpdates()
-            var _ = self.viewModel.getTotalNumberForRemove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            tableView.endUpdates()
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.connections()
+            for n in self.arrayIndexpath {
+                
+                print(n)
+                tableView.beginUpdates()
+                var _ = self.viewModel.getTotalNumberForRemove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.reloadData()
+                
+                tableView.endUpdates()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.connections()
+                }
             }
+            
         }
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if tableView.isEditing == true {
             guard let str = self.viewModel.getFetBackDelet(at: indexPath.row) else {return}
-            //        let size = str.reversed().firstIndex(of: "/") ?? str.count
-            //        let startWord = str.index(str.endIndex, offsetBy: -size)
-            //        let last = str[startWord...]
-            //        let deletestring = String(last)
             let takeID = takeIDfromUrl(string: str)
             //print (deletestring)
             print("didselect")
@@ -117,15 +137,14 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 if takeID == arraypath[compare]{
                     print(arraypath[compare])
                     arraypath.remove(at: compare)
+                    print(arrayIndexpath)
+                    arrayIndexpath.remove(at: compare)
+                    print(arrayIndexpath)
+                
                     break
                 }
             }
         }
-//        print(arraypath)
-//        print(indexPath.row)
-//
-//        print("deselect")
-//        print(arraypath)
     }
 
 }
@@ -146,8 +165,16 @@ extension FetBackViewController: FetBackModelDelegate {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-
-        
+        guard let str = self.viewModel.getFetBackDelet(at: indexPath.row) else {return}
+        let takeId = takeIDfromUrl(string: str)
+        self.viewModel.deleteTheProductFromFetback(productId: takeId)
+        var _ = self.viewModel.getTotalNumberForRemove(at: indexPath.row)
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.endUpdates()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.connections()
+        }
     }
-  
+    
 }
