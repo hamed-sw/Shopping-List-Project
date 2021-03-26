@@ -47,8 +47,8 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
         viewModel.fetbackToProduct()
     }
     @IBAction func trashBin(_ sender: Any) {
-        for num in self.arraypath {
-            self.viewModel.deleteTheProductFromFetback(productId: num)
+        for number in self.arraypath {
+            self.viewModel.deleteTheProductFromFetback(productId: number)
         }
         arraypath.removeAll()
       forDelet()
@@ -109,11 +109,11 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 break
             }
         }
-        print(arraypath)
-        print(indexPath.row)
-
-        print("deselect")
-        print(arraypath)
+//        print(arraypath)
+//        print(indexPath.row)
+//
+//        print("deselect")
+//        print(arraypath)
     }
 
 }
