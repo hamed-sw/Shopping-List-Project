@@ -12,7 +12,7 @@ protocol AddViewModelDelegate: class {
 
 class AddCardViewModel {
     
-    var addProductData: PostProduct?
+    var addProductData: Products?
     weak var delegate: AddViewModelDelegate?
     
     
