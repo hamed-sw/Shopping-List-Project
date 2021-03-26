@@ -117,6 +117,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="About Fetback" id="mps-Lu-iku">
                         <barButtonItem key="backBarButtonItem" title="back" id="o1I-YR-J30"/>
+                        <barButtonItem key="leftBarButtonItem" title="item" id="7Yl-US-LrY">
+                            <connections>
+                                <action selector="selectDeselectTap:" destination="z7z-8S-apY" id="8dF-nt-1NF"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Add " id="hhm-PJ-8GU">
                                 <connections>
@@ -132,7 +137,8 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="addFetBack" destination="hhm-PJ-8GU" id="PQA-3Q-iLG"/>
+                        <outlet property="addFetBack" destination="hhm-PJ-8GU" id="KSl-mA-axh"/>
+                        <outlet property="selectAndDeselect" destination="7Yl-US-LrY" id="weu-oM-Gne"/>
                         <outlet property="tableView" destination="6Kb-yz-3om" id="o6X-Xf-iCI"/>
                     </connections>
                 </viewController>
