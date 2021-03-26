@@ -24,7 +24,8 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.tableView.reloadData()
         self.viewModel.delegate = self
         registerCell()
-        tableView.isEditing = true
+       // tableView.isEditing = true
+        tableView.allowsSelectionDuringEditing = true
         tableView.allowsMultipleSelectionDuringEditing = true
 
         // Do any additional setup after loading the view.
@@ -32,7 +33,7 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
-
+        self.tableView.reloadData()
         self.viewModel.delegate = self
         connections()
         DispatchQueue.main.async {
@@ -47,11 +48,16 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
         viewModel.fetbackToProduct()
     }
     @IBAction func trashBin(_ sender: Any) {
+
+        tableView.isEditing.toggle()
+        if  tableView.isEditing == false {
         for number in self.arraypath {
             self.viewModel.deleteTheProductFromFetback(productId: number)
         }
         arraypath.removeAll()
-      forDelet()
+        connections()
+        forDelet()
+        }
     }
     
     @IBAction func addFetBackTap(_ sender: Any) {
@@ -74,15 +80,18 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
      
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let str = self.viewModel.getFetBackDelet(at: indexPath.row) else {return}
-        let size = str.reversed().firstIndex(of: "/") ?? str.count
-        let startWord = str.index(str.endIndex, offsetBy: -size)
-        let last = str[startWord...]
-        let sss = String(last)
-        print (sss)
-        print("printselect")
-        arraypath.append(sss)
-        print(arraypath)
+        if tableView.isEditing == true {
+            guard let str = self.viewModel.getFetBackDelet(at: indexPath.row) else {return}
+//            let size = str.reversed().firstIndex(of: "/") ?? str.count
+//            let startWord = str.index(str.endIndex, offsetBy: -size)
+//            let last = str[startWord...]
+//            let sss = String(last)
+            let takeId = takeIDfromUrl(string: str)
+           // print (sss)
+            print("printselect")
+            arraypath.append(takeId)
+            print(arraypath)
+        }
         forDelet = {
             tableView.beginUpdates()
             var _ = self.viewModel.getTotalNumberForRemove(at: indexPath.row)
@@ -95,18 +104,21 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        guard let str = self.viewModel.getFetBackDelet(at: indexPath.row) else {return}
-        let size = str.reversed().firstIndex(of: "/") ?? str.count
-        let startWord = str.index(str.endIndex, offsetBy: -size)
-        let last = str[startWord...]
-        let deletestring = String(last)
-        print (deletestring)
-        print("didselect")
-        for compare in 0..<arraypath.count{
-            if deletestring == arraypath[compare]{
-                 print(arraypath[compare])
-                arraypath.remove(at: compare)
-                break
+        if tableView.isEditing == true {
+            guard let str = self.viewModel.getFetBackDelet(at: indexPath.row) else {return}
+            //        let size = str.reversed().firstIndex(of: "/") ?? str.count
+            //        let startWord = str.index(str.endIndex, offsetBy: -size)
+            //        let last = str[startWord...]
+            //        let deletestring = String(last)
+            let takeID = takeIDfromUrl(string: str)
+            //print (deletestring)
+            print("didselect")
+            for compare in 0..<arraypath.count{
+                if takeID == arraypath[compare]{
+                    print(arraypath[compare])
+                    arraypath.remove(at: compare)
+                    break
+                }
             }
         }
 //        print(arraypath)
@@ -119,6 +131,14 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
 }
 
 extension FetBackViewController: FetBackModelDelegate {
+    func takeIDfromUrl(string: String) -> String {
+        let size = string.reversed().firstIndex(of: "/") ?? string.count
+        let startWord = string.index(string.endIndex, offsetBy: -size)
+        let last = string[startWord...]
+        let deletestring = String(last)
+        return deletestring
+
+    }
     func updates() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
