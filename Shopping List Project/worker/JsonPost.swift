@@ -51,14 +51,14 @@ class JsonPost {
  }
     
  //MARK: FOR DECODING
-typealias success = (PostProduct) -> ()
+typealias success = (Products) -> ()
     static func parseJsonFile (onSucess:@escaping success) {
         if let url = URL(string: "https://firestore.googleapis.com/v1/projects/online-46aa4/databases/(default)/documents/addData") {
             URLSession.shared.dataTask(with: url) { (data, response, error) in
                 guard let data = data else {return}
                 
                 do {
-                    let json = try JSONDecoder().decode(PostProduct.self, from: data)
+                    let json = try JSONDecoder().decode(Products.self, from: data)
                     onSucess(json)
                 }catch {
                     debugPrint(error.localizedDescription)
