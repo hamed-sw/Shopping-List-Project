@@ -72,15 +72,6 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
                 let price = viewModel.priceFormatter().string(from: (aboutPrice) as NSNumber)
                     cell.priceOfProductLabel.text = price
             }
-            cell.buttonPressed = {
-                if let priceOfitme = self.viewModel.getPrductPrice(at: indexPath.row),
-                let pictureOfItem = self.viewModel.getProductImage(at: indexPath.row),
-                let numid = self.viewModel.getProuductid(at: indexPath.row),
-                    let nameOfItem = self.viewModel.getProuductName(at: indexPath.row) {
-                JsonPost.addDataToCard(prices: priceOfitme, pic: pictureOfItem, nu: numid, names: nameOfItem)
-                self.addItemToTheCard(addtoCard: "AddToCard", massege: "The Item is Sucessfuly add it in your list ")
-                }
-            }
             cell.accessoryType = cell.isSelected ? .checkmark : .none
             cell.delegate = self
             newCell = cell

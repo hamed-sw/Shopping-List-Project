@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Foundation
 protocol FetBackModelDelegate: class {
     func updates()
 }
