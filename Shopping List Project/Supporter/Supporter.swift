@@ -11,6 +11,7 @@ struct CellIdentifire {
     static let homeTableViewCell = "HomeTableViewCell"
     static let addCardTableViewCell = "AddCardTableViewCell"
     static let fetbackCell = "FetBackTableViewCell"
+    static let TrashbinTableViewCell = "TrashbinTableViewCell"
     
 }
 
@@ -21,6 +22,6 @@ struct ButtonImages {
 }
 struct StoryBoardId {
     static let buyItemViewController = "BuyItemViewController"
-    static let SubmitVC = "SubmitViewController"
+    static let SubmitViewController = "SubmitViewController"
 
 }
