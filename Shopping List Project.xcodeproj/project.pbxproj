@@ -84,10 +84,7 @@
 		FA0255B825F6F94600AC6671 /* JsonDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDelete.swift; sourceTree = "<group>"; };
 		FA0255BB25F6FF3C00AC6671 /* ModelPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPost.swift; sourceTree = "<group>"; };
 		FA0255C125F7A99700AC6671 /* BuyItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyItemViewController.swift; sourceTree = "<group>"; };
-		FA1F60B4260A12B6004EE66F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		FA1F60BA260A13A2004EE66F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FA1F6131260A6D1D004EE66F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		FA1F6133260A6D22004EE66F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA1F6148260B8788004EE66F /* FetBackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetBackModel.swift; sourceTree = "<group>"; };
 		FA1F614C260B8A02004EE66F /* JsonFetBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFetBack.swift; sourceTree = "<group>"; };
 		FA1F6150260B922A004EE66F /* FetBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetBackViewController.swift; sourceTree = "<group>"; };
@@ -96,13 +93,15 @@
 		FA1F615D260B943E004EE66F /* FetBackViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetBackViewmodel.swift; sourceTree = "<group>"; };
 		FA1F6162260C5B85004EE66F /* SubmitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitViewController.swift; sourceTree = "<group>"; };
 		FA1F616D260D9206004EE66F /* FetBackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetBackViewModel.swift; sourceTree = "<group>"; };
-		FA1F6171260DC693004EE66F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		FA1F6172260DC698004EE66F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		FA2BCC2025FA2B8E0073FECF /* Shopping List ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shopping List ProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2BCC2225FA2B8E0073FECF /* Shopping_List_ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping_List_ProjectTests.swift; sourceTree = "<group>"; };
 		FA2BCC2425FA2B8E0073FECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA2BCC2C25FA2C6C0073FECF /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
 		FA2BCC3025FA2C8A0073FECF /* AddToCardViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCardViewModelTest.swift; sourceTree = "<group>"; };
+		FA7C3FE5260FC002007DAE0B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		FA7C3FE7260FC04C007DAE0B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		FA7C3FE9260FC04D007DAE0B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FA7C3FEE260FC0EA007DAE0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,8 +209,8 @@
 				FA02558E25F66F1000AC6671 /* HomeViewController.swift */,
 				FA02559525F66F5500AC6671 /* AddToCardVC.swift */,
 				FA0255C125F7A99700AC6671 /* BuyItemViewController.swift */,
-				FA1F6132260A6D1D004EE66F /* Localizable.strings */,
 				FA1F6150260B922A004EE66F /* FetBackViewController.swift */,
+				FA1F6132260A6D1D004EE66F /* Localizable.strings */,
 				FA1F6162260C5B85004EE66F /* SubmitViewController.swift */,
 			);
 			path = ViewController;
@@ -345,7 +344,7 @@
 				en,
 				Base,
 				ru,
-				ar,
+				de,
 			);
 			mainGroup = FA02555925F66B9E00AC6671;
 			productRefGroup = FA02556325F66B9E00AC6671 /* Products */;
@@ -502,8 +501,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA02556C25F66B9F00AC6671 /* Base */,
-				FA1F6171260DC693004EE66F /* en */,
-				FA1F6172260DC698004EE66F /* ru */,
+				FA7C3FE5260FC002007DAE0B /* ru */,
+				FA7C3FE7260FC04C007DAE0B /* de */,
+				FA7C3FEE260FC0EA007DAE0B /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -512,8 +512,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA02557125F66BA500AC6671 /* Base */,
-				FA1F60B4260A12B6004EE66F /* ru */,
-				FA1F60BA260A13A2004EE66F /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -522,7 +520,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA1F6131260A6D1D004EE66F /* en */,
-				FA1F6133260A6D22004EE66F /* ru */,
+				FA7C3FE9260FC04D007DAE0B /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

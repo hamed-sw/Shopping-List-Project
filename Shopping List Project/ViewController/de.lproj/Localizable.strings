@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Shopping List Project
+
+  Created by Hamed Amiry on 23.03.2021.
+  
+*/
+"AddCard" = "Add To Card";
+"Product" = "Product";
+"CardNum" = "Card Number:";
+
+"Date" = "Date:";

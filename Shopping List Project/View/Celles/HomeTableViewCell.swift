@@ -18,9 +18,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var nameOfProductLabel: UILabel!
     @IBOutlet weak var priceOfProductLabel: UILabel!
     @IBOutlet weak var addCardButton: UIButton!  
-    // Variable
-    var buttonPressed : (() -> ()) = {}
-    
+    // Variable    
     let homeVC = HomeViewController()
     weak var delegate: TableCellDelegate?
     
@@ -31,7 +29,6 @@ class HomeTableViewCell: UITableViewCell {
 
     
     @IBAction func addCardButtonTap(_ sender: Any) {
-       // buttonPressed()
         delegate?.checkAndUpdate(cell: self)
     }
  
