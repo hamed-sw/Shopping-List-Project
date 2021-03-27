@@ -15,7 +15,9 @@ struct CellIdentifire {
     
 }
 
-struct ButtonImages {
+struct ButtonTitel {
+    static let Unselect = "Unselect"
+    static let Select = "Select"
     
     static let likeButton = "heart.fill"
     static let unlikeButton = "heart"

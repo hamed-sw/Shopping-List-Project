@@ -12,12 +12,7 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
  
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addFetBack: UIBarButtonItem!
-    @IBOutlet weak var selectAndDeselect: UIBarButtonItem! {
-        didSet {
-            selectAndDeselect.title = "Unselect"
-        }
-    }
-    
+    @IBOutlet weak var selectAndDeselect: UIBarButtonItem!
     
     lazy var viewModel = FetbackModel()
     var arraypath = [String]()
@@ -45,15 +40,13 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
     }
     override func viewWillAppear(_ animated: Bool) {
+        selectAndDeselect.title = ButtonTitel.Select
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
         self.tableView.reloadData()
         self.viewModel.delegate = self
         self.tableView.isEditing = false
         connections()
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
         arraypath.removeAll()
         arrayIndexpath.removeAll()
     }
@@ -71,8 +64,18 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     @IBAction func selectDeselectTap(_ sender: Any) {
-        tableView.isEditing = true
-        selectAndDeselect.title = "Select"
+        if selectAndDeselect.title == ButtonTitel.Select {
+            if viewModel.getFetBack(at: 0) != "" {
+                tableView.isEditing = true
+                selectAndDeselect.title = ButtonTitel.Unselect
+            }
+        }else if selectAndDeselect.title == ButtonTitel.Unselect {
+            tableView.isEditing = false
+            selectAndDeselect.title = ButtonTitel.Select
+            arraypath.removeAll()
+            arrayIndexpath.removeAll()
+       }
+
     }
     @IBAction func trashBin(_ sender: Any) {
        if  tableView.isEditing == true && !arraypath.isEmpty {
@@ -106,12 +109,11 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if tableView.isEditing == true {
             guard let str = self.viewModel.getFetBackDelet(at: indexPath.row) else {return}
             let takeId = takeIDfromUrl(string: str)
-            print("printselect")
             arraypath.append(takeId)
             arrayIndexpath.append(indexPath.row)
-            print(indexPath.row)
-            print(arrayIndexpath)
-            print(arraypath)
+           // print(indexPath.row)
+            //print(arrayIndexpath)
+           // print(arraypath)
         }
 
     }
@@ -119,14 +121,13 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if tableView.isEditing == true {
             guard let str = self.viewModel.getFetBackDelet(at: indexPath.row) else {return}
             let takeID = takeIDfromUrl(string: str)
-            print("didselect")
             for compare in 0..<arraypath.count{
                 if takeID == arraypath[compare]{
-                    print(arraypath[compare])
+                   // print(arraypath[compare])
                     arraypath.remove(at: compare)
-                    print(arrayIndexpath)
+                   // print(arrayIndexpath)
                     arrayIndexpath.remove(at: compare)
-                    print(arrayIndexpath)
+                   // print(arrayIndexpath)
                 
                     break
                 }
@@ -163,7 +164,15 @@ extension FetBackViewController: FetBackModelDelegate {
             self.tableView.reloadData()
         }
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    func tableView(_ tableView: UITableView, shouldBeginMultipleSelectionInteractionAt indexPath: IndexPath) -> Bool {
+        true
+    }
+    func tableView(_ tableView: UITableView, didBeginMultipleSelectionInteractionAt indexPath: IndexPath) {
+        tableView.setEditing(true, animated: true)
+    }
     func alertForDeletItem() {
         let alert = UIAlertController(title: "Delete", message: "All selected data will be lost.", preferredStyle: UIAlertController.Style.alert)
 
@@ -178,11 +187,9 @@ extension FetBackViewController: FetBackModelDelegate {
                 self.tableView.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
                 self.connections()
-
-
             }
             self.tableView.isEditing = false
-            self.selectAndDeselect.title = "UnSelect"
+            self.selectAndDeselect.title = ButtonTitel.Select
 
         }))
 

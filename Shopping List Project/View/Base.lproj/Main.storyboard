@@ -117,7 +117,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="About Fetback" id="mps-Lu-iku">
                         <barButtonItem key="backBarButtonItem" title="back" id="o1I-YR-J30"/>
-                        <barButtonItem key="leftBarButtonItem" title="item" id="7Yl-US-LrY">
+                        <barButtonItem key="leftBarButtonItem" title="Unselect" id="7Yl-US-LrY">
                             <connections>
                                 <action selector="selectDeselectTap:" destination="z7z-8S-apY" id="8dF-nt-1NF"/>
                             </connections>
