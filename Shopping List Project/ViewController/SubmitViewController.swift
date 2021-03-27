@@ -45,15 +45,13 @@ class SubmitViewController: UIViewController, UITextViewDelegate {
         } else {
             viewModel.insertFetback(insert: fetbackHere.text, forBool: false)
             fetbackHere.text = nil
-            //alert(title: "FetBack", massage: "Your Fetback Added successfuly")
+            alert(title: "FetBack", massage: "Your Fetback Added successfuly")
         }
     }
     func alert(title: String, massage: String) {
         let alert = UIAlertController(title: title, message: massage, preferredStyle: UIAlertController.Style.alert)
-        // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
-        // show the alert
         self.present(alert, animated: true, completion: nil)
         
     }

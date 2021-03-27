@@ -18,17 +18,18 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgJ-F4-kjr">
                         <rect key="frame" x="10" y="10" width="364" height="63"/>
-                        <color key="backgroundColor" red="0.92224167420000003" green="0.90958953419999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="364" id="3yM-AV-Wgz"/>
+                            <constraint firstAttribute="height" constant="63" id="iw4-K2-rCx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="24"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="tgJ-F4-kjr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Mnc-vJ-4ph"/>
-                    <constraint firstAttribute="bottom" secondItem="tgJ-F4-kjr" secondAttribute="bottom" constant="10" id="Q6T-pW-cS2"/>
-                    <constraint firstItem="tgJ-F4-kjr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="R4p-Om-LoM"/>
-                    <constraint firstAttribute="trailing" secondItem="tgJ-F4-kjr" secondAttribute="trailing" constant="10" id="jt5-VH-bda"/>
+                    <constraint firstItem="tgJ-F4-kjr" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="LEU-CF-d3c"/>
+                    <constraint firstItem="tgJ-F4-kjr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Of4-bG-laz"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
