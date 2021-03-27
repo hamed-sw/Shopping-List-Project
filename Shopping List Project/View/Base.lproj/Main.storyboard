@@ -126,7 +126,6 @@
                             <barButtonItem title="Add " id="hhm-PJ-8GU">
                                 <connections>
                                     <action selector="addFetBackTap:" destination="z7z-8S-apY" id="LHo-Lw-yeK"/>
-                                    <segue destination="Eb5-Vl-QfT" kind="show" id="aKs-2d-vXR"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="trash" catalog="system" id="lHg-6x-QoX">
@@ -140,6 +139,7 @@
                         <outlet property="addFetBack" destination="hhm-PJ-8GU" id="KSl-mA-axh"/>
                         <outlet property="selectAndDeselect" destination="7Yl-US-LrY" id="weu-oM-Gne"/>
                         <outlet property="tableView" destination="6Kb-yz-3om" id="o6X-Xf-iCI"/>
+                        <segue destination="Eb5-Vl-QfT" kind="show" identifier="SubmitViewController" id="a5d-Sg-FYI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f77-Ui-28c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -202,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Azf-vc-7wH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3515.9420289855075" y="-212.27678571428569"/>
+            <point key="canvasLocation" x="3741" y="-212"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="so0-sZ-f0I">

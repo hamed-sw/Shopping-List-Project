@@ -19,8 +19,11 @@ class FetbackModel {
     
     func fetbackToProduct() {
          JsonFetBack.parseJsonFile { [weak self] addCardData in
-            self?.fetbackProduct = addCardData
-            self?.delegate?.updates()
+            DispatchQueue.main.async {
+                self?.fetbackProduct = addCardData
+                self?.delegate?.updates()
+            }
+            
         }
     }
     

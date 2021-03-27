@@ -9,15 +9,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FetBackTableViewCell" rowHeight="114" id="KGk-i7-Jjw" customClass="FetBackTableViewCell" customModule="Shopping_List_Project" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="378" height="114"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FetBackTableViewCell" rowHeight="83" id="KGk-i7-Jjw" customClass="FetBackTableViewCell" customModule="Shopping_List_Project" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="83"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="378" height="114"/>
+                <rect key="frame" x="0.0" y="0.0" width="384" height="83"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgJ-F4-kjr">
-                        <rect key="frame" x="10" y="10" width="358" height="94"/>
+                        <rect key="frame" x="10" y="10" width="364" height="63"/>
                         <color key="backgroundColor" red="0.92224167420000003" green="0.90958953419999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -25,17 +25,17 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="tgJ-F4-kjr" secondAttribute="bottom" constant="10" id="AYX-yU-Z8k"/>
-                    <constraint firstAttribute="trailing" secondItem="tgJ-F4-kjr" secondAttribute="trailing" constant="10" id="O0B-Wc-HMh"/>
-                    <constraint firstItem="tgJ-F4-kjr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="SVy-c7-3sT"/>
-                    <constraint firstItem="tgJ-F4-kjr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="uMW-4L-jt3"/>
+                    <constraint firstItem="tgJ-F4-kjr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Mnc-vJ-4ph"/>
+                    <constraint firstAttribute="bottom" secondItem="tgJ-F4-kjr" secondAttribute="bottom" constant="10" id="Q6T-pW-cS2"/>
+                    <constraint firstItem="tgJ-F4-kjr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="R4p-Om-LoM"/>
+                    <constraint firstAttribute="trailing" secondItem="tgJ-F4-kjr" secondAttribute="trailing" constant="10" id="jt5-VH-bda"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="fetbackLabel" destination="tgJ-F4-kjr" id="yLT-Jg-ssd"/>
             </connections>
-            <point key="canvasLocation" x="-59.420289855072468" y="-38.839285714285715"/>
+            <point key="canvasLocation" x="-55.072463768115945" y="-49.21875"/>
         </tableViewCell>
     </objects>
 </document>
