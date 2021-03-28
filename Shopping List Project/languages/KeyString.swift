@@ -80,6 +80,8 @@ struct KeyString {
     static let addCardButton = "addCardButton"
     static let buyButton = "buyButton"
     static let productName = "ProductName"
+    static let delete = "Delete"
+    static let masseg = "massege"
 
     /* Class = "UILabel"; text = "Your Fetback"; ObjectID = "vbC-Fm-P4v"; */
     //"vbC-Fm-P4v.text" = "Your Feedback";

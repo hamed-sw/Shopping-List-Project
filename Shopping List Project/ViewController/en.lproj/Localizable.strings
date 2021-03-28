@@ -83,3 +83,5 @@
 "addCardButton" = "Add To card";
 "buyButton" = "buyButton";
 "ProductName" = "Add card For";
+"Delete" = "Delete";
+"massege" = "All selected data will be lost.";

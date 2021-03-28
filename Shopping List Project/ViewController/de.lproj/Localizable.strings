@@ -84,3 +84,5 @@
 "addCardButton" = "zur Karte hinzufügen";
 "buyButton" = "Button kaufen";
 "ProductName" = "Karte hinzufügen für";
+"Delete" = "Löschen";
+"massege" = "Alle ausgewählten Daten gehen verloren.";

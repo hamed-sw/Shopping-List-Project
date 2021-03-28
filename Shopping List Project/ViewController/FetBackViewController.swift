@@ -176,7 +176,7 @@ extension FetBackViewController: FetBackModelDelegate {
         tableView.setEditing(true, animated: true)
     }
     func alertForDeletItem() {
-        let alert = UIAlertController(title: "Delete", message: "All selected data will be lost.", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: KeyString.delete.localizableString(), message: KeyString.masseg.localizableString(), preferredStyle: UIAlertController.Style.alert)
 
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [self] (action: UIAlertAction!) in
             for numberID in self.arraypath {
