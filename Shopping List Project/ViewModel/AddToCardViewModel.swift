@@ -79,11 +79,5 @@ class AddCardViewModel {
         let idForDeletAddCard = addProductData?.documents?.object(at: index)?.name
         return idForDeletAddCard ?? ""
     }
-    func priceFormatter() -> NumberFormatter {
-        let formatter = NumberFormatter()
-        formatter.locale = Locale.current
-        formatter.numberStyle = .currency
-        return formatter
-    }
-    
+
 }

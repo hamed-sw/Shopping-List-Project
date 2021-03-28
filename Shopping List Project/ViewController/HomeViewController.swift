@@ -18,8 +18,11 @@ class HomeViewController: UIViewController,HomeViewModelDelegate {
     
     //Variable
     lazy var viewModel = HomeViewModel()
+    var lang: (() -> ()) = {}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.set("en", forKey: languagekey)
         tableView.reloadData()
         tableView.delegate = self
         tableView.dataSource = self
@@ -31,22 +34,25 @@ class HomeViewController: UIViewController,HomeViewModelDelegate {
     
     @IBAction func englishButtonLanguage(_ sender: Any) {
         UserDefaults.standard.set("en", forKey: languagekey)
-
-     languages()
+        tableView.reloadData()
+        self.languages()
         
     }
     
     @IBAction func rusButtonLanguage(_ sender: Any) {
         UserDefaults.standard.set("de", forKey: languagekey)
-
-        languages()
+        tableView.reloadData()
+        self.languages()
         }
+    
     private func registerCell() {
         tableView.register(UINib(nibName: CellIdentifire.homeTableViewCell , bundle: nil), forCellReuseIdentifier: CellIdentifire.homeTableViewCell)
     }
+    
     func connection() {
         viewModel.productSearch()
     }
+    
     func update() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -75,8 +81,9 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
             if let aboutPrice = viewModel.getPrductPrice(at: indexPath.row) {
                 cell.priceOfProductLabel.text = String(format: "$%.02f", aboutPrice)
                 
-                
             }
+            cell.addCardButton.setTitle(KeyString.addCardButton.localizableString(), for: .normal)
+
             
             cell.accessoryType = cell.isSelected ? .checkmark : .none
             cell.delegate = self
@@ -113,6 +120,12 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
 
 // MARK:
 extension HomeViewController: TableCellDelegate{
+    func language(cell: HomeTableViewCell) {
+        lang = {
+          cell.addCardButton.setTitle(KeyString.addCardButton.localizableString(), for: .normal)
+        }
+    }
+    
 
     func checkAndUpdate(cell: HomeTableViewCell) {
         guard let indexpat = tableView.indexPath(for: cell) else {return}
@@ -127,16 +140,6 @@ extension HomeViewController: TableCellDelegate{
     }
     func languages() {
         navigationItem.title = KeyString.Products.localizableString()
-     
-        
     }
 }
-extension String {
-    func localizableStringAll(loc: String) -> String {
-         let path = Bundle.main.path(forResource: loc, ofType: "lproj")
-           let bundle = Bundle(path: path!)
-            
-            return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: "", comment: "")
-        
-    }
-}
+

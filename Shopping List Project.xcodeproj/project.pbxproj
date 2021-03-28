@@ -27,7 +27,6 @@
 		FA0255AF25F6AB9900AC6671 /* Array+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0255AE25F6AB9700AC6671 /* Array+Extenstion.swift */; };
 		FA0255B625F6DAF800AC6671 /* JsonPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0255B525F6DAF700AC6671 /* JsonPost.swift */; };
 		FA0255B925F6F94600AC6671 /* JsonDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0255B825F6F94600AC6671 /* JsonDelete.swift */; };
-		FA0255BC25F6FF3C00AC6671 /* ModelPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0255BB25F6FF3C00AC6671 /* ModelPost.swift */; };
 		FA0255C225F7A99900AC6671 /* BuyItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0255C125F7A99700AC6671 /* BuyItemViewController.swift */; };
 		FA1F6130260A6D1D004EE66F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA1F6132260A6D1D004EE66F /* Localizable.strings */; };
 		FA1F6149260B8788004EE66F /* FetBackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1F6148260B8788004EE66F /* FetBackModel.swift */; };
@@ -84,7 +83,6 @@
 		FA0255AE25F6AB9700AC6671 /* Array+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extenstion.swift"; sourceTree = "<group>"; };
 		FA0255B525F6DAF700AC6671 /* JsonPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonPost.swift; sourceTree = "<group>"; };
 		FA0255B825F6F94600AC6671 /* JsonDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDelete.swift; sourceTree = "<group>"; };
-		FA0255BB25F6FF3C00AC6671 /* ModelPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPost.swift; sourceTree = "<group>"; };
 		FA0255C125F7A99700AC6671 /* BuyItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyItemViewController.swift; sourceTree = "<group>"; };
 		FA1F6131260A6D1D004EE66F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA1F6148260B8788004EE66F /* FetBackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetBackModel.swift; sourceTree = "<group>"; };
@@ -171,9 +169,9 @@
 		FA02556425F66B9E00AC6671 /* Shopping List Project */ = {
 			isa = PBXGroup;
 			children = (
-				FA7C401126109CD5007DAE0B /* languages */,
 				FA02556525F66B9F00AC6671 /* AppDelegate.swift */,
 				FA02556725F66B9F00AC6671 /* SceneDelegate.swift */,
+				FA7C401126109CD5007DAE0B /* languages */,
 				FA02557F25F66BC600AC6671 /* Model */,
 				FA02557B25F66BB900AC6671 /* View */,
 				FA02557D25F66BBE00AC6671 /* ViewController */,
@@ -235,7 +233,6 @@
 			isa = PBXGroup;
 			children = (
 				FA02558725F66D1A00AC6671 /* Model.swift */,
-				FA0255BB25F6FF3C00AC6671 /* ModelPost.swift */,
 				FA1F6148260B8788004EE66F /* FetBackModel.swift */,
 			);
 			path = Model;
@@ -486,7 +483,6 @@
 				FA02559B25F66FD000AC6671 /* HomeTableViewCell.swift in Sources */,
 				FA02558F25F66F1100AC6671 /* HomeViewController.swift in Sources */,
 				FA02556825F66B9F00AC6671 /* SceneDelegate.swift in Sources */,
-				FA0255BC25F6FF3C00AC6671 /* ModelPost.swift in Sources */,
 				FA1F6151260B922A004EE66F /* FetBackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
