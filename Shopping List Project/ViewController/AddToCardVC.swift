@@ -28,7 +28,7 @@ class AddToCardVC: UIViewController, AddViewModelDelegate{
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = "Add To Card "
+        navigationItem.title = KeyString.AddCardList.localizableString()
         self.tabBarController?.tabBar.isHidden = false
         tableView.reloadData()
         connection()
@@ -70,11 +70,12 @@ extension AddToCardVC: UITableViewDelegate,UITableViewDataSource {
             cell.callBackOnButtonLogout = {
                 if let vc = self.storyboard?.instantiateViewController(withIdentifier: StoryBoardId.buyItemViewController) as? BuyItemViewController {
                     if   let namOfItem = self.addModelView.getAddCardName(at: indexPath.row){
-                        vc.nameItem = "Add card For " + namOfItem
+                        vc.nameItem = KeyString.productName.localizableString() + namOfItem
                     }
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
             }
+            cell.buyButton.setTitle(KeyString.buyButton.localizableString(), for: .normal)
             cell.accessoryType = cell.isSelected ? .checkmark : .none
 
             newCell = cell

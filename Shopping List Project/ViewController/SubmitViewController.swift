@@ -10,14 +10,22 @@ import UIKit
 class SubmitViewController: UIViewController, UITextViewDelegate {
 
 
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var label: UILabel! {
+        didSet {
+            label.text = KeyString.YourFeedback.localizableString()
+        }
+    }
     @IBOutlet weak var fetbackHere: UITextView! {
         didSet{
-            fetbackHere.text = "write your fetback here..."
+            fetbackHere.text = KeyString.placeholderFetback.localizableString()
             fetbackHere.textColor = UIColor.lightGray
         }
     }
-    @IBOutlet weak var submitbtn: UIButton!
+    @IBOutlet weak var submitbtn: UIButton! {
+        didSet {
+            submitbtn.setTitle(KeyString.Submit.localizableString(), for: .normal)
+        }
+    }
     
     
     lazy var viewModel = FetbackModel()
@@ -39,13 +47,13 @@ class SubmitViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func submitBtnTap(_ sender: UIButton) {
         if fetbackHere.text != nil && fetbackHere.textColor == UIColor.lightGray {
-            alert(title: "Error", massage: "Please Enter...")
+            alert(title: KeyString.error.localizableString(), massage: KeyString.pleaseEnter.localizableString())
         }else if fetbackHere.text == ""  && fetbackHere.textColor == UIColor.black {
-            alert(title: "Error", massage: "Please Enter...")
+            alert(title: KeyString.error.localizableString(), massage: KeyString.pleaseEnter.localizableString())
         } else {
             viewModel.insertFetback(insert: fetbackHere.text, forBool: false)
             fetbackHere.text = nil
-            alert(title: "FetBack", massage: "Your Fetback Added successfuly")
+            alert(title: KeyString.fedback.localizableString(), massage: KeyString.addFeedBack.localizableString())
         }
     }
     func alert(title: String, massage: String) {

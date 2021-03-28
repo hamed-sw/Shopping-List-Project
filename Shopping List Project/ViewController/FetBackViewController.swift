@@ -40,8 +40,10 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        selectAndDeselect.title = ButtonTitel.Select
         super.viewWillAppear(animated)
+        addFetBack.title = KeyString.Add.localizableString()
+        selectAndDeselect.title = KeyString.select.localizableString()
+        navigationItem.title = KeyString.AboutFeedback.localizableString()
         self.tabBarController?.tabBar.isHidden = false
         self.tableView.reloadData()
         self.viewModel.delegate = self
@@ -64,14 +66,14 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     @IBAction func selectDeselectTap(_ sender: Any) {
-        if selectAndDeselect.title == ButtonTitel.Select {
+        if selectAndDeselect.title == KeyString.select.localizableString() {
             if viewModel.getFetBack(at: 0) != "" {
                 tableView.isEditing = true
-                selectAndDeselect.title = ButtonTitel.Unselect
+                selectAndDeselect.title = KeyString.Unselect.localizableString()
             }
-        }else if selectAndDeselect.title == ButtonTitel.Unselect {
+        }else if selectAndDeselect.title == KeyString.Unselect.localizableString() {
             tableView.isEditing = false
-            selectAndDeselect.title = ButtonTitel.Select
+            selectAndDeselect.title = KeyString.select.localizableString()
             arraypath.removeAll()
             arrayIndexpath.removeAll()
        }
@@ -189,7 +191,7 @@ extension FetBackViewController: FetBackModelDelegate {
                 self.connections()
             }
             self.tableView.isEditing = false
-            self.selectAndDeselect.title = ButtonTitel.Select
+            self.selectAndDeselect.title = KeyString.select.localizableString()
 
         }))
 
@@ -198,5 +200,9 @@ extension FetBackViewController: FetBackModelDelegate {
 
         present(alert, animated: true, completion: nil)
     }
+    
+        
+       
+    
 
 }

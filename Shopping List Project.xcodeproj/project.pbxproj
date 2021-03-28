@@ -41,6 +41,8 @@
 		FA2BCC2325FA2B8E0073FECF /* Shopping_List_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BCC2225FA2B8E0073FECF /* Shopping_List_ProjectTests.swift */; };
 		FA2BCC2D25FA2C6C0073FECF /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BCC2C25FA2C6C0073FECF /* HomeViewModelTest.swift */; };
 		FA2BCC3125FA2C8A0073FECF /* AddToCardViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BCC3025FA2C8A0073FECF /* AddToCardViewModelTest.swift */; };
+		FA7C401326109D15007DAE0B /* Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C401226109D15007DAE0B /* Extenstion.swift */; };
+		FA7C401726109D25007DAE0B /* KeyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C401626109D25007DAE0B /* KeyString.swift */; };
 		FED7916AAD0D192636C06500 /* Pods_Shopping_List_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5252DDB5533686979EBF0D /* Pods_Shopping_List_ProjectTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +104,8 @@
 		FA7C3FE7260FC04C007DAE0B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		FA7C3FE9260FC04D007DAE0B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA7C3FEE260FC0EA007DAE0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		FA7C401226109D15007DAE0B /* Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extenstion.swift; sourceTree = "<group>"; };
+		FA7C401626109D25007DAE0B /* KeyString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 		FA02556425F66B9E00AC6671 /* Shopping List Project */ = {
 			isa = PBXGroup;
 			children = (
+				FA7C401126109CD5007DAE0B /* languages */,
 				FA02556525F66B9F00AC6671 /* AppDelegate.swift */,
 				FA02556725F66B9F00AC6671 /* SceneDelegate.swift */,
 				FA02557F25F66BC600AC6671 /* Model */,
@@ -275,6 +280,15 @@
 				FA1F616D260D9206004EE66F /* FetBackViewModel.swift */,
 			);
 			path = "Shopping List ProjectTests";
+			sourceTree = "<group>";
+		};
+		FA7C401126109CD5007DAE0B /* languages */ = {
+			isa = PBXGroup;
+			children = (
+				FA7C401226109D15007DAE0B /* Extenstion.swift */,
+				FA7C401626109D25007DAE0B /* KeyString.swift */,
+			);
+			path = languages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,8 +466,10 @@
 			files = (
 				FA0255A125F66FF500AC6671 /* AddCardTableViewCell.swift in Sources */,
 				FA1F615E260B943E004EE66F /* FetBackViewmodel.swift in Sources */,
+				FA7C401726109D25007DAE0B /* KeyString.swift in Sources */,
 				FA02558B25F66D2E00AC6671 /* Supporter.swift in Sources */,
 				FA02556625F66B9F00AC6671 /* AppDelegate.swift in Sources */,
+				FA7C401326109D15007DAE0B /* Extenstion.swift in Sources */,
 				FA0255A625F670AB00AC6671 /* HomeViewModel.swift in Sources */,
 				FA1F614D260B8A02004EE66F /* JsonFetBack.swift in Sources */,
 				FA0255B925F6F94600AC6671 /* JsonDelete.swift in Sources */,

@@ -21,18 +21,20 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cardNumberLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var buybutt: UIButton!
     
     
     //Variable
     var nameItem : String!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        localizationLanguage()
         self.cardNumber.delegate = self
         self.date.delegate = self
         self.cvv.delegate = self
         self.email.delegate = self
         textFiledClears()
-        super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
         //self.navigationController!.navigationBar.topItem!.title = "Back"
         productName.text = nameItem
@@ -96,25 +98,21 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
         return
     }
-}
-
-extension String {
-    func localizableString(loc: String) -> String {
-         let path = Bundle.main.path(forResource: loc, ofType: "lproj")
-           let bundle = Bundle(path: path!)
-            
-            return NSLocalizedString(self, tableName: "Localizable", bundle: bundle!, value: "", comment: "")
+    func localizationLanguage() {
+        cardNumberLabel.text = KeyString.Cardnumber.localizableString()
+        dateLabel.text = KeyString.Date.localizableString()
+        emailLabel.text = KeyString.Email.localizableString()
+        //navigationItem.backButtonTitle = KeyString.backButton.localizableString()
+        pay.text = KeyString.Payment.localizableString()
+        buybutt.setTitle(KeyString.buy.localizableString(), for: .normal)
+        productName.text = KeyString.productName.localizableString()
+        
+        
+        
+        
     }
 }
 
-extension BuyItemViewController {
-    func lableLangues (lang: String) {
-       // productName.text =  "productKey".localizableString(loc: lang)
-        cardNumberLabel.text = "CardNum".localizableString(loc: lang)
-        dateLabel.text = "Date".localizableString(loc: lang)
-      //  email.text = "emailkey".localizableString(loc: lang)
-       // cvv.text =  "cvvkey".localizableString(loc: lang)
-      //  pay.text = "paykey".localizableString(loc: lang)
-    }
 
-}
+
+

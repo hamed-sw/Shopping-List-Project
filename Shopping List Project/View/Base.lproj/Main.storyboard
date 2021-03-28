@@ -65,7 +65,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Products" id="Ktp-nK-Nck">
                         <rightBarButtonItems>
-                            <barButtonItem tag="1" title="Rus" id="DGG-aF-HQJ">
+                            <barButtonItem tag="1" title="Deu" id="DGG-aF-HQJ">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="rusButtonLanguage:" destination="Fmo-Fb-OiQ" id="bYs-KQ-Kyb"/>
@@ -117,7 +117,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="About Fetback" id="mps-Lu-iku">
                         <barButtonItem key="backBarButtonItem" title="back" id="o1I-YR-J30"/>
-                        <barButtonItem key="leftBarButtonItem" title="Unselect" id="7Yl-US-LrY">
+                        <barButtonItem key="leftBarButtonItem" title="select" id="7Yl-US-LrY">
                             <connections>
                                 <action selector="selectDeselectTap:" destination="z7z-8S-apY" id="8dF-nt-1NF"/>
                             </connections>
@@ -416,6 +416,7 @@
                     <navigationItem key="navigationItem" id="hr2-Kk-Rcm"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="buybutt" destination="uDu-Ml-0hB" id="ksm-la-9Za"/>
                         <outlet property="cardNumber" destination="oiH-Zz-Ugd" id="pdh-du-YPN"/>
                         <outlet property="cardNumberLabel" destination="LQf-Yf-310" id="cds-vj-z88"/>
                         <outlet property="cvv" destination="guD-mu-glL" id="wtf-Uc-NAr"/>

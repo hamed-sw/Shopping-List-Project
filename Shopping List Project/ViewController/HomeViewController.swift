@@ -30,13 +30,17 @@ class HomeViewController: UIViewController,HomeViewModelDelegate {
     }
     
     @IBAction func englishButtonLanguage(_ sender: Any) {
-     languages(loc: "en")
+        UserDefaults.standard.set("en", forKey: languagekey)
+
+     languages()
         
     }
     
     @IBAction func rusButtonLanguage(_ sender: Any) {
-    languages(loc: "ru")
-    }
+        UserDefaults.standard.set("de", forKey: languagekey)
+
+        languages()
+        }
     private func registerCell() {
         tableView.register(UINib(nibName: CellIdentifire.homeTableViewCell , bundle: nil), forCellReuseIdentifier: CellIdentifire.homeTableViewCell)
     }
@@ -107,17 +111,7 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
 
 // MARK:
 extension HomeViewController: TableCellDelegate{
-    
-    func languages(loc: String) {
-        navigationItem.title = "Product".localizableString(loc: loc)
-        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "AddToCardVC" {
-                let vc = segue.destination as! AddToCardVC
-                vc.navigationItem.title = "AddCard".localizableString(loc: loc)
-            }
-        }
-        
-    }
+
     func checkAndUpdate(cell: HomeTableViewCell) {
         guard let indexpat = tableView.indexPath(for: cell) else {return}
         if  let namee = self.viewModel.getProuductName(at: indexpat.row),
@@ -127,6 +121,11 @@ extension HomeViewController: TableCellDelegate{
             viewModel.ddd(pirces: pricee, image: imagee, number: idd, names: namee)
             self.addItemToTheCard(addtoCard: "AddToCard", massege: "The Item is Sucessfuly add it in your list ")
         }
+        
+    }
+    func languages() {
+        navigationItem.title = KeyString.Products.localizableString()
+     
         
     }
 }

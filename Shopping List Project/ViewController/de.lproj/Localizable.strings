@@ -5,8 +5,82 @@
   Created by Hamed Amiry on 23.03.2021.
   
 */
-"AddCard" = "Add To Card";
-"Product" = "Product";
-"CardNum" = "Card Number:";
+/* Class = "UIBarButtonItem"; title = "Unselect"; ObjectID = "7Yl-US-LrY"; */
+"7Yl-US-LrY.title" = "abwählen";
 
-"Date" = "Date:";
+/* Class = "UIBarButtonItem"; title = "Rus"; ObjectID = "DGG-aF-HQJ"; */
+"DGG-aF-HQJ.title" = "De";
+
+/* Class = "UINavigationItem"; title = "Products"; ObjectID = "Ktp-nK-Nck"; */
+"Ktp-nK-Nck.title" = "Produkte";
+
+/* Class = "UILabel"; text = "Card number:"; ObjectID = "LQf-Yf-310"; */
+"LQf-Yf-310.text" = "Kartennummer:";
+
+/* Class = "UILabel"; text = "Date:"; ObjectID = "Ogt-bg-ffG"; */
+"Ogt-bg-ffG.text" = "Datum:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "W9U-ah-V0W"; */
+"W9U-ah-V0W.text" = "Etikette";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "Y7d-gR-hny"; */
+"Y7d-gR-hny.normalTitle" = "einreichen";
+
+/* Class = "UINavigationItem"; title = "Add Card List"; ObjectID = "YAc-ES-5Ce"; */
+"YAc-ES-5Ce.title" = "Kartenliste hinzufügen";
+
+/* Class = "UILabel"; text = "E-mail:"; ObjectID = "arT-DR-Em5"; */
+"arT-DR-Em5.text" = "Email:";
+
+/* Class = "UITextField"; placeholder = "00/00"; ObjectID = "ea3-vT-AOe"; */
+"ea3-vT-AOe.placeholder" = "00/00";
+
+/* Class = "UITextField"; placeholder = "000"; ObjectID = "guD-mu-glL"; */
+"guD-mu-glL.placeholder" = "000";
+
+/* Class = "UIBarButtonItem"; title = "Add "; ObjectID = "hhm-PJ-8GU"; */
+"hhm-PJ-8GU.title" = "+";
+
+/* Class = "UILabel"; text = "CVV:"; ObjectID = "hwp-ua-6VK"; */
+"hwp-ua-6VK.text" = "CVV:";
+
+/* Class = "UIBarButtonItem"; title = "Eng"; ObjectID = "j9A-Tc-muA"; */
+"j9A-Tc-muA.title" = "Eng";
+
+/* Class = "UINavigationItem"; title = "About Fetback"; ObjectID = "mps-Lu-iku"; */
+"mps-Lu-iku.title" = "Über Feedback";
+
+/* Class = "UIBarButtonItem"; title = "back"; ObjectID = "o1I-YR-J30"; */
+"o1I-YR-J30.title" = "zurück";
+
+/* Class = "UITextField"; placeholder = "0000 0000 0000 0000 0000"; ObjectID = "oiH-Zz-Ugd"; */
+"oiH-Zz-Ugd.placeholder" = "0000 0000 0000 0000 0000";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "pt9-yp-a5h"; */
+"pt9-yp-a5h.title" = "Zurück";
+
+/* Class = "UITabBarItem"; title = "fetback"; ObjectID = "qlO-38-9Lb"; */
+"qlO-38-9Lb.title" = "feedback";
+
+/* Class = "UILabel"; text = "Payment"; ObjectID = "rJJ-uJ-mab"; */
+"rJJ-uJ-mab.text" = "Zahlung";
+
+/* Class = "UIButton"; normalTitle = "pay"; ObjectID = "uDu-Ml-0hB"; */
+"uDu-Ml-0hB.normalTitle" = "Zahlen";
+
+/* Class = "UILabel"; text = "Your Fetback"; ObjectID = "vbC-Fm-P4v"; */
+"vbC-Fm-P4v.text" = "Ihre Rückmeldung";
+
+/* Class = "UITextField"; placeholder = "..........................@.com"; ObjectID = "yEz-15-G8d"; */
+"yEz-15-G8d.placeholder" = "..........................@.com";
+"select" = "wählen";
+"placeholderFetback" = "Schreiben Sie hier Ihr Feedback ...";
+"Error" = "Error";
+"pleaseEnter" = "Bitte kommen Sie herein...";
+"FeedBack" = "FeedBack";
+"AddFeedBack" = "Ihr Feedback erfolgreich hinzugefügt";
+
+"buy" = "Kaufen";
+"addCardButton" = "zur Karte hinzufügen";
+"buyButton" = "Button kaufen";
+"ProductName" = "Karte hinzufügen für";
