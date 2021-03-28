@@ -36,7 +36,7 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
         self.email.delegate = self
         textFiledClears()
         self.tabBarController?.tabBar.isHidden = true
-        //self.navigationController!.navigationBar.topItem!.title = "Back"
+        self.navigationController!.navigationBar.topItem!.title = KeyString.nextBack.localizedCapitalized
         productName.text = nameItem
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)

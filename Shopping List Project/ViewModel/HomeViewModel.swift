@@ -70,13 +70,5 @@ class HomeViewModel {
         let idForDelet = productData?.documents?.object(at: index)?.name
         return idForDelet ?? ""
     }
-    
-    func priceFormatter() -> NumberFormatter {
-        let formatter = NumberFormatter()
-        formatter.locale = Locale.current
-        formatter.numberStyle = .currency
-        return formatter
-    }
-    
-    
+
 }

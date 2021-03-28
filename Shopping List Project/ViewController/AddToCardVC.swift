@@ -64,8 +64,8 @@ extension AddToCardVC: UITableViewDelegate,UITableViewDataSource {
             }
             cell.nameLabel.text = addModelView.getAddCardName(at: indexPath.row)
             
-            if let price = addModelView.priceFormatter().string(from: (addModelView.getAddCardPrice(at: indexPath.row))! as NSNumber) {
-                cell.priceLabel.text = price
+            if let price = addModelView.getAddCardPrice(at: indexPath.row) {
+                cell.priceLabel.text = String(format: "$%.02f", price)
             }
             cell.callBackOnButtonLogout = {
                 if let vc = self.storyboard?.instantiateViewController(withIdentifier: StoryBoardId.buyItemViewController) as? BuyItemViewController {

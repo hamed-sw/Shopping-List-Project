@@ -73,10 +73,11 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
             }
             
             if let aboutPrice = viewModel.getPrductPrice(at: indexPath.row) {
-                let price = viewModel.priceFormatter().string(from: (aboutPrice) as NSNumber)
-                    cell.priceOfProductLabel.text = price
+                cell.priceOfProductLabel.text = String(format: "$%.02f", aboutPrice)
+                
+                
             }
-            cell.addCardButton.setTitle(KeyString.addCardButton.localizableString(), for: .normal)
+            
             cell.accessoryType = cell.isSelected ? .checkmark : .none
             cell.delegate = self
             newCell = cell
