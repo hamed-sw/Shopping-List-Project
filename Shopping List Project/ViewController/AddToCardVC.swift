@@ -71,6 +71,8 @@ extension AddToCardVC: UITableViewDelegate,UITableViewDataSource {
                 if let vc = self.storyboard?.instantiateViewController(withIdentifier: StoryBoardId.buyItemViewController) as? BuyItemViewController {
                     if   let namOfItem = self.addModelView.getAddCardName(at: indexPath.row){
                         vc.nameItem = KeyString.productName.localizableString() + namOfItem
+                        self.navigationItem.backBarButtonItem?.title = KeyString.nextBack.localizableString()
+
                     }
                     self.navigationController?.pushViewController(vc, animated: true)
                 }

@@ -134,7 +134,7 @@ extension HomeViewController: TableCellDelegate{
             let imagee = self.viewModel.getProductImage(at: indexpat.row),
             let idd = self.viewModel.getProuductid(at: indexpat.row) {
             viewModel.ddd(pirces: pricee, image: imagee, number: idd, names: namee)
-            self.addItemToTheCard(addtoCard: "AddToCard", massege: "The Item is Sucessfuly add it in your list ")
+            self.addItemToTheCard(addtoCard: KeyString.itemAdd.localizableString(), massege: KeyString.addlist.localizableString())
         }
         
     }

@@ -89,3 +89,5 @@
 "string" = "Einkaufen ist Erfolg";
 "massageOfPay" = "Danke fürs Einkaufen";
 "fill" = "Bitte füllen Sie alle erforderlichen Felder aus";
+"itemAdd" = " In die Karte einlegen";
+"addlist" = "Der Artikel wird erfolgreich in Ihre Liste aufgenommen";

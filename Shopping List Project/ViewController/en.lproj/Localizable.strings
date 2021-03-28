@@ -88,3 +88,5 @@
 "string" = "Shopping is Success";
 "massageOfPay" = "Thanks for shopping";
 "fill" = "please fill out all required fields";
+"itemAdd" = "Add To Card";
+"addlist" = "The Item is Successfully added to your list";

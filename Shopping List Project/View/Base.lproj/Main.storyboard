@@ -118,17 +118,20 @@
                     <navigationItem key="navigationItem" title="About Fetback" id="mps-Lu-iku">
                         <barButtonItem key="backBarButtonItem" title="back" id="o1I-YR-J30"/>
                         <barButtonItem key="leftBarButtonItem" title="select" id="7Yl-US-LrY">
+                            <color key="tintColor" red="0.0023891427554190159" green="0.20617935061454773" blue="0.30186799168586731" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="selectDeselectTap:" destination="z7z-8S-apY" id="8dF-nt-1NF"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Add " id="hhm-PJ-8GU">
+                                <color key="tintColor" red="0.0023891427554190159" green="0.20617935061454773" blue="0.30186799168586731" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="addFetBackTap:" destination="z7z-8S-apY" id="LHo-Lw-yeK"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="trash" catalog="system" id="lHg-6x-QoX">
+                                <color key="tintColor" red="0.0023891427554190159" green="0.20617935061454773" blue="0.30186799168586731" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="trashBin:" destination="z7z-8S-apY" id="r20-qI-E2J"/>
                                 </connections>

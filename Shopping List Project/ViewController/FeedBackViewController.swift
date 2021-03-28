@@ -44,6 +44,7 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
         addFetBack.title = KeyString.Add.localizableString()
         selectAndDeselect.title = KeyString.select.localizableString()
         navigationItem.title = KeyString.AboutFeedback.localizableString()
+        navigationItem.backBarButtonItem?.title = KeyString.nextBack.localizableString()
         self.tabBarController?.tabBar.isHidden = false
         self.tableView.reloadData()
         self.viewModel.delegate = self

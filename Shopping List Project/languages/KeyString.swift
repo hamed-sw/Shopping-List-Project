@@ -67,6 +67,8 @@ struct KeyString {
     static let string = "string"
     static let massageOfPay = "massageOfPay"
     static let fill = "fill"
+    static let itemAdd = "itemAdd"
+    static let addlist = "addlist"
 
   
 }

@@ -31,7 +31,7 @@
 		FA1F6130260A6D1D004EE66F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA1F6132260A6D1D004EE66F /* Localizable.strings */; };
 		FA1F6149260B8788004EE66F /* FetBackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1F6148260B8788004EE66F /* FetBackModel.swift */; };
 		FA1F614D260B8A02004EE66F /* JsonFetBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1F614C260B8A02004EE66F /* JsonFetBack.swift */; };
-		FA1F6151260B922A004EE66F /* FetBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1F6150260B922A004EE66F /* FetBackViewController.swift */; };
+		FA1F6151260B922A004EE66F /* FeedBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1F6150260B922A004EE66F /* FeedBackViewController.swift */; };
 		FA1F6157260B9356004EE66F /* FetBackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1F6155260B9356004EE66F /* FetBackTableViewCell.swift */; };
 		FA1F6158260B9356004EE66F /* FetBackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1F6156260B9356004EE66F /* FetBackTableViewCell.xib */; };
 		FA1F615E260B943E004EE66F /* FetBackViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1F615D260B943E004EE66F /* FetBackViewmodel.swift */; };
@@ -87,7 +87,7 @@
 		FA1F6131260A6D1D004EE66F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA1F6148260B8788004EE66F /* FetBackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetBackModel.swift; sourceTree = "<group>"; };
 		FA1F614C260B8A02004EE66F /* JsonFetBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFetBack.swift; sourceTree = "<group>"; };
-		FA1F6150260B922A004EE66F /* FetBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetBackViewController.swift; sourceTree = "<group>"; };
+		FA1F6150260B922A004EE66F /* FeedBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewController.swift; sourceTree = "<group>"; };
 		FA1F6155260B9356004EE66F /* FetBackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetBackTableViewCell.swift; sourceTree = "<group>"; };
 		FA1F6156260B9356004EE66F /* FetBackTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FetBackTableViewCell.xib; sourceTree = "<group>"; };
 		FA1F615D260B943E004EE66F /* FetBackViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetBackViewmodel.swift; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 				FA02558E25F66F1000AC6671 /* HomeViewController.swift */,
 				FA02559525F66F5500AC6671 /* AddToCardVC.swift */,
 				FA0255C125F7A99700AC6671 /* BuyItemViewController.swift */,
-				FA1F6150260B922A004EE66F /* FetBackViewController.swift */,
+				FA1F6150260B922A004EE66F /* FeedBackViewController.swift */,
 				FA1F6132260A6D1D004EE66F /* Localizable.strings */,
 				FA1F6162260C5B85004EE66F /* SubmitViewController.swift */,
 			);
@@ -483,7 +483,7 @@
 				FA02559B25F66FD000AC6671 /* HomeTableViewCell.swift in Sources */,
 				FA02558F25F66F1100AC6671 /* HomeViewController.swift in Sources */,
 				FA02556825F66B9F00AC6671 /* SceneDelegate.swift in Sources */,
-				FA1F6151260B922A004EE66F /* FetBackViewController.swift in Sources */,
+				FA1F6151260B922A004EE66F /* FeedBackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
