@@ -86,3 +86,6 @@
 "ProductName" = "Karte hinzufügen für";
 "Delete" = "Löschen";
 "massege" = "Alle ausgewählten Daten gehen verloren.";
+"string" = "Einkaufen ist Erfolg";
+"massageOfPay" = "Danke fürs Einkaufen";
+"fill" = "Bitte füllen Sie alle erforderlichen Felder aus";

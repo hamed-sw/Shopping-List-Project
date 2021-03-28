@@ -85,3 +85,6 @@
 "ProductName" = "Add card For";
 "Delete" = "Delete";
 "massege" = "All selected data will be lost.";
+"string" = "Shopping is Success";
+"massageOfPay" = "Thanks for shopping";
+"fill" = "please fill out all required fields";

@@ -80,18 +80,18 @@ class BuyItemViewController: UIViewController, UITextFieldDelegate {
            let bankCardDate = date.text, !bankCardDate.isEmpty,
            let securityCard = cvv.text, !securityCard.isEmpty,
            let userEmail = email.text, !userEmail.isEmpty {
-            alertFunction(error: "Shopping is Sucess", massege: "Thanks for shopping")
+            alertFunction(string: KeyString.string.localizableString(), massege: KeyString.massageOfPay.localizableString())
             cardNumber.text = ""
             cvv.text = ""
             email.text = ""
             date.text = ""
             return
         }
-        alertFunction(error: "Error", massege: "Please fill out all required fields")
+        alertFunction(string: KeyString.error.localizableString(), massege: KeyString.fill.localizableString())
     }
     
-    func alertFunction(error: String, massege: String) {
-        let alert = UIAlertController(title: error , message: massege, preferredStyle: UIAlertController.Style.alert)
+    func alertFunction(string: String, massege: String) {
+        let alert = UIAlertController(title: string , message: massege, preferredStyle: UIAlertController.Style.alert)
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         // show the alert
