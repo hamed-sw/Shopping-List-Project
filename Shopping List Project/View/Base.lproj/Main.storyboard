@@ -435,11 +435,11 @@
             </objects>
             <point key="canvasLocation" x="2598.5507246376815" y="501.5625"/>
         </scene>
-        <!--fetback-->
+        <!--feedback-->
         <scene sceneID="dCF-e0-y3k">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qy6-eM-uIL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="fetback" image="pencil.tip" catalog="system" id="qlO-38-9Lb"/>
+                    <tabBarItem key="tabBarItem" title="feedback" image="pencil.tip" catalog="system" id="qlO-38-9Lb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lbl-Fv-0PS">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
