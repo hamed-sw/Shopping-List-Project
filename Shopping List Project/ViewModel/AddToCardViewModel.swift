@@ -5,7 +5,7 @@
 //  Created by Hamed Amiry on 08.03.2021.
 //
 
-import Foundation
+import UIKit
 protocol AddViewModelDelegate: class {
     func update()
 }
@@ -78,6 +78,15 @@ class AddCardViewModel {
     func getAddCardDeletId(at index: Int) -> String? {
         let idForDeletAddCard = addProductData?.documents?.object(at: index)?.name
         return idForDeletAddCard ?? ""
+    }
+    
+    func createIdForDeleteItem(str:String) -> String{
+        let size = str.reversed().firstIndex(of: "/") ?? str.count
+        let startWord = str.index(str.endIndex, offsetBy: -size)
+        let last = str[startWord...]
+        let deleteId = String(last)
+        return deleteId
+        
     }
 
 }

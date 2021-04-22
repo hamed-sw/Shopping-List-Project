@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol HomeViewModelDelegate: class {
     func update()
@@ -70,5 +71,13 @@ class HomeViewModel {
         let idForDelet = productData?.documents?.object(at: index)?.name
         return idForDelet ?? ""
     }
+    
+    func englishLanguage() {
+        UserDefaults.standard.setValue("en", forKey: languagekey)
+    }
+    func germanLanguage() {
+        UserDefaults.standard.setValue("de", forKey: languagekey)
+    }
+
 
 }
