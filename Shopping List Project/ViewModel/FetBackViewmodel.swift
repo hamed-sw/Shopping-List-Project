@@ -14,15 +14,13 @@ class FetbackModel {
     
     var fetbackProduct: Fetback?
     weak var delegate: FetBackModelDelegate?
-    
-    
+
     func fetbackToProduct() {
          JsonFetBack.parseJsonFile { [weak self] addCardData in
             DispatchQueue.main.async {
                 self?.fetbackProduct = addCardData
                 self?.delegate?.updates()
             }
-            
         }
     }
     
@@ -66,5 +64,27 @@ class FetbackModel {
         let delete = fetbackProduct?.documents?.object(at: index)?.name
         return delete ?? ""
     }
+    func takeIDfromUrl(string: String) -> String {
+        let size = string.reversed().firstIndex(of: "/") ?? string.count
+        let startWord = string.index(string.endIndex, offsetBy: -size)
+        let last = string[startWord...]
+        let deletestring = String(last)
+        return deletestring
+
+    }
     
+    func selectAndNotSelectRow(integer int:Int, str string:String, arrpath arr:inout [String] , arrayIndexpath arrindex:inout [Int] ) {
+        for num in 0..<int {
+            if string == arr[num]{
+        
+                let dd = arr.remove(at: num)
+                print(dd)
+                let ds = arrindex.remove(at: num)
+                print(ds)
+                break
+            }
+        }
+        
+    }
+
 }
