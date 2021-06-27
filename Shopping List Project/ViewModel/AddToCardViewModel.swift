@@ -6,7 +6,7 @@
 //
 
 import UIKit
-protocol AddViewModelDelegate: class {
+protocol AddViewModelDelegate: AnyObject {
     func update()
 }
 

@@ -6,7 +6,9 @@
 //
 
 import Foundation
-protocol FetBackModelDelegate: class {
+import UIKit
+
+protocol FetBackModelDelegate: AnyObject {
     func updates()
 }
 
@@ -86,5 +88,20 @@ class FetbackModel {
         }
         
     }
-
+    
+    func selecteAndDesected(tableView: UITableView, selectAndDeselect: UIBarButtonItem ,arrapath arr:inout[String], arrayIndexpath arrindex:inout[Int]) {
+        if selectAndDeselect.title == KeyString.select.localizableString() {
+            if getFetBack(at: 0) != "" {
+                tableView.isEditing = true
+                selectAndDeselect.title = KeyString.Unselect.localizableString()
+            }
+        } else if selectAndDeselect.title == KeyString.Unselect.localizableString() {
+            tableView.isEditing = false
+            selectAndDeselect.title = KeyString.select.localizableString()
+            arr.removeAll()
+            arrindex.removeAll()
+        }
+        
+    }
+    
 }

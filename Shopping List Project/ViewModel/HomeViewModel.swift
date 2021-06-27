@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol HomeViewModelDelegate: class {
+protocol HomeViewModelDelegate: AnyObject {
     func update()
 }
 

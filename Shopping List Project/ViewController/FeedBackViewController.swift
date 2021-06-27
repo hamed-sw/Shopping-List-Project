@@ -88,26 +88,29 @@ class FetBackViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     @IBAction func selectDeselectTap(_ sender: Any) {
+        viewModel.selecteAndDesected(tableView: tableView, selectAndDeselect: selectAndDeselect, arrapath: &arraypath, arrayIndexpath: &arrayIndexpath)
         
-        if selectAndDeselect.title == KeyString.select.localizableString() {
-            
-            if viewModel.getFetBack(at: 0) != "" {
-                
-                tableView.isEditing = true
-                
-                selectAndDeselect.title = KeyString.Unselect.localizableString()
-            }
-            
-        }else if selectAndDeselect.title == KeyString.Unselect.localizableString() {
-            
-            tableView.isEditing = false
-            
-            selectAndDeselect.title = KeyString.select.localizableString()
-            
-            arraypath.removeAll()
-            
-            arrayIndexpath.removeAll()
-        }
+
+        
+//        if selectAndDeselect.title == KeyString.select.localizableString() {
+//
+//            if viewModel.getFetBack(at: 0) != "" {
+//
+//                tableView.isEditing = true
+//
+//                selectAndDeselect.title = KeyString.Unselect.localizableString()
+//            }
+//
+//        }else if selectAndDeselect.title == KeyString.Unselect.localizableString() {
+//
+//            tableView.isEditing = false
+//
+//            selectAndDeselect.title = KeyString.select.localizableString()
+//
+//            arraypath.removeAll()
+//
+//            arrayIndexpath.removeAll()
+//        }
         
     }
     

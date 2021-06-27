@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol TableCellDelegate: class {
+protocol TableCellDelegate: AnyObject {
     func checkAndUpdate(cell: HomeTableViewCell)
 }
 
