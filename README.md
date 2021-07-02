@@ -45,5 +45,3 @@ In this mobile app the Cloud Firestore has been used, which is useful to call th
 
 After loading in IPhone...
 
- [![Here is the Demo.](https://user-images.githubusercontent.com/79857557/110949900-d7214600-834b-11eb-961b-5c5a701d6317.png)
-](https://user-images.githubusercontent.com/79857557/110944714-7989fb00-8345-11eb-9def-c04098a983fe.mp4)
